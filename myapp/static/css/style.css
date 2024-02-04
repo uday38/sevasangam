@@ -56,7 +56,6 @@ Version: 1.0
  *      6.14 Section - Contact and Map
  * 7. - FOOTER 
  * 8. - RESPONSIVE
- *38.1 - form sign up
  * -----------------------------------------------------------------------------
  */
 .bolder {
@@ -763,7 +762,7 @@ ul.checklist {
   font-family: "Open Sans", sans-serif;
   font-size: 14px;
   color: #ffffff;
-  padding: 15px 35px;
+  padding: 15px 20px;
   border: 0;
   font-weight: 600;
   -webkit-border-radius: 3;
@@ -1791,7 +1790,6 @@ dl.hiw {
 
 /* 6.5 - Contact */
 .contact .form-control {
-
   height: 45px;
   background-color: #f6f6f6;
   border: 1px solid #eee;
@@ -2085,5 +2083,3 @@ dl.hiw {
   .career-tabs .nav-tabs > li {
     width: 100%;
     clear: left; } }
-
-     /**

@@ -35,7 +35,7 @@ def faq(request):
     return render(request, 'faq.html')
 
 def pricingtabel(request):
-    return render(request, 'pricing-tabel.html')
+    return render(request, 'pricing-table.html')
 
 def page(request):
     return render(request, '404page.html')
