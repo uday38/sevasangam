@@ -26,5 +26,11 @@ urlpatterns = [
     path("contact/", views.contact, name="contact.html"),
     path("contact us/", views.contactus, name="contact-us.html"),
     path("contact quote/", views.contactquote, name="contact-quote.html"),
-    path('checklogin',views.checklogin, name="checklogin")
+    path("checklogin",views.checklogin, name="checklogin"),
+    path("boatinsurance/",views.boatinsurance, name="service boat insurance.html"),
+    path("carinsurance/",views.carinsurance, name="service car insurance.html"),
+    path("houseinsurance/",views.houseinsurance, name="service house insurance.html"),
+    path("lifeinsurance/",views.lifeinsurance, name="service life insurance.html"),
+    path("travelinsurance/",views.travelinsurance, name="service travel insurance.html"),
+    path("vehicalinsurance/",views.vehicalinsurance, name="service vehical insurance.html"),
 ]

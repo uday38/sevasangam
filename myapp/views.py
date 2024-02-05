@@ -67,12 +67,32 @@ def contactus(request):
 def contactquote(request):
     return render(request, 'contact-quote.html')
 
+def boatinsurance(request):
+    return render(request, 'service-boat-insurance.html')
+
+def carinsurance(request):
+    return render(request, 'service-car-insurance.html')
+
+def houseinsurance(request):
+    return render(request, 'service-house-insurance.html')
+
+def lifeinsurance(request):
+    return render(request, 'service-life-insurance.html')
+
+def travelinsurance(request):
+    return render(request, 'service-tarvel-insurance.html')
+
+def vehicalinsurance(request):
+    return render(request, 'service-vehical-insurance.html')
+
 def insert(request):
     return render(request, 'insert.html')
 def signup(request):
     return render(request, 'signup.html')
 def login(request):
     return render(request, 'login.html')
+def checklogin(request):
+    return render(request, 'checklogin.html')
 
 
 def insertdata(request):
