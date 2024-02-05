@@ -236,17 +236,20 @@
 	<!-- SINGLE PAGE --> 
 	<div class="section news section-border">
 		<div class="container">
+			<h2> policy detail</h2>
 			<div class="row grid-services">
+				<a href="addproduct" class="button">add policy</a>
 				
+				{% for policy in policydata %}
 				<div class="col-sm-6 col-md-4">
 					<div class="box-news-1">
 						<div class="image">
-							<a href="/news detail/" title="House Insurance">
-								<img src="{% static 'images/project-img-1.jpg' %}" alt="" class="img-responsive">
+							<a href="/careers/" title="House Insurance">
+								<img src="media/{images/project-img-1.jpg' }" alt="" class="img-responsive">
 							</a>
 						</div>
 						<div class="meta-date">March 20, 2016</div>
-						<h3 class="blok-title"><a href="#" title="How to protect your kid for their future dream.">How to protect your kid for their future dream.</a></h3>
+						<h3 class="blok-title"><a href="#" title="How to protect your kid for their future dream.">{{policy.}}</a></h3>
 					</div>
 				</div>
 				<div class="col-sm-6 col-md-4">
@@ -260,50 +263,7 @@
 						<h3 class="blok-title"><a href="#" title="How to protect your kid for their future dream.">Traveling more confident with our insurance.</a></h3>
 					</div>
 				</div>
-				<div class="col-sm-6 col-md-4">
-					<div class="box-news-1">
-						<div class="image">
-							<a href="/news detail/" title="House Insurance">
-								<img src="{% static 'images/project-img-3.jpg' %}" alt="" class="img-responsive">
-							</a>
-						</div>
-						<div class="meta-date">March 20, 2016</div>
-						<h3 class="blok-title"><a href="#" title="How to protect your kid for their future dream.">Your vacation more confident and safety with us.</a></h3>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-4">
-					<div class="box-news-1">
-						<div class="image">
-							<a href="news detail/" title="House Insurance">
-								<img src="{% static 'images/project-img-4.jpg' %}" alt="" class="img-responsive">
-							</a>
-						</div>
-						<div class="meta-date">March 20, 2016</div>
-						<h3 class="blok-title"><a href="#" title="How to protect your kid for their future dream.">We give more protection for your life insurance.</a></h3>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-4">
-					<div class="box-news-1">
-						<div class="image">
-							<a href="news detail/" title="House Insurance">
-								<img src="{% static 'images/project-img-5.jpg' %}" alt="" class="img-responsive">
-							</a>
-						</div>
-						<div class="meta-date">March 20, 2016</div>
-						<h3 class="blok-title"><a href="#" title="How to protect your kid for their future dream.">Smile and always happy with your kids.</a></h3>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-4">
-					<div class="box-news-1">
-						<div class="image">
-							<a href="news detail/" title="House Insurance">
-								<img src="{% static 'images/project-img-6.jpg' %}" alt="" class="img-responsive">
-							</a>
-						</div>
-						<div class="meta-date">March 20, 2016</div>
-						<h3 class="blok-title"><a href="#" title="How to protect your kid for their future dream.">Have travel planned? check our insurance for quarantee.</a></h3>
-					</div>
-				</div>
+				
 
 			</div>
 
