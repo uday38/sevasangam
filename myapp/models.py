@@ -1,6 +1,6 @@
 from email.policy import Policy
-
 from django.db import models
+from django.utils.safestring import mark_safe
 
 STATUS_CHOICES = [
     ('active', 'Active'),
@@ -57,8 +57,9 @@ class policy(models.Model):
     policy_name = models.CharField(max_length=255)
     policy_details = models.TextField()
     policy_type = models.CharField(max_length=50)
-    policy_photo = models.ImageField(upload_to='photos', null=True, blank=True)
+    policy_photo = models.ImageField(upload_to='photos')
     policy_agency = models.CharField(max_length=100)
+    policy_publication_date = models.DateTimeField(max_length=100)
     policy_target_audience = models.CharField(max_length=100)
     policy_eligible_castes = models.CharField(max_length=100)
     policy_applicable_state = models.CharField(max_length=50)
@@ -70,6 +71,13 @@ class policy(models.Model):
 
     def __str__(self):
         return self.policy_name
+    
+    # def policy_photo(self):
+    #     return mark_safe('<img src="{}" width="100"/>'.format(self.policy_photo.url))
+    # policy_photo.allow_tags = True
+
+    
+    
 class category(models.Model):
     category_name=models.CharField(max_length=20)
 

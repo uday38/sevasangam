@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib import messages
 from .models import *
+from .models import policy
 
 
 # Create your views here.
@@ -116,18 +117,21 @@ def checklogin(request):
     useremail=request.POST["u_email"]
     userpassword=request.POST["u_password"]
     try:
-        query=User.objects.get(email=useremail,password=userpassword)
-        request.session['useremail']=query.email
-        request.session['userid']=query.id
-        print(request.session['userid'])
+        query=User.objects.get(email=useremail)
+        if check_password(userpassword=query.password):
+            request.session['useremail']=query.email
+            request.session['userid']=query.id
+            print(request.session['userid'])
+            return render(request, 'index04b9.html')
+        else:
+            messages.info(request, 'Incorrect email or password')
+            return render(request, 'signup.html')
     except User.DoesNotExist:
-        query=None
-    if query is not None:
-        return render(request,'index04b9.html')
-    else:
-        messages.info(request,'Account does not exist!! Please Sign In')
-    return render(request,'signup.html')
+        messages.info(request, 'Account does not exist!! Please Sign In')
+        return render(request, 'signup.html')
 
-
+def newsgrid(request):
+    policydata=policy.objects.all()
+    return render(request,"news-grid.html",{"policydata":policydata})
 
 
