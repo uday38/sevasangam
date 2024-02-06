@@ -46,7 +46,7 @@
 </head>
 
 <body>
-{ % block content %}
+
 	<!-- Load page -->
 	<div class="animationload">
 		<div class="loader"></div>
@@ -238,9 +238,9 @@
 			<div class="row">
 				<div class="col-sm-7 col-md-7">
 					<h2 class="section-heading">
-						Career
+						{{data.policy_name}}
 					</h2>
-					<div class="section-subheading">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div> 
+					<div class="section-subheading">{{policydata.policy_details}}</div>
 					<ul class="checklist">
 						<li>100% Secure, consectetuer adipiscing elit, sed diam nonummy nibh euismod.</li>
 						<li>Easy to claim, sed diam nonummy nibh euismod. Lorem ipsum dolor sit amet.</li>
@@ -249,7 +249,8 @@
 					
 				</div>
 				<div class="col-sm-5 col-md-5">
-					<img src="{% static 'images/why-img.jpg'%}" alt="" class="img-responsive">
+					<p>Hello	</p>
+					<img src="/media/{{data.policy_photo}}" alt="" class="img-responsive">
 				</div>
 				
 			</div>
@@ -395,7 +396,7 @@
 						</div>
 					</div>
 					<!-- END TAB -->
-
+						
 				</div>
 			</div>
 		</div>

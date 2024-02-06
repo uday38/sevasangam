@@ -134,4 +134,8 @@ def newsgrid(request):
     policydata=policy.objects.all()
     return render(request,"news-grid.html",{"policydata":policydata})
 
+def careers(request,pid):
+    data=policy.objects.get(id=pid)
+    return render(request,"career.html",{"data":data})
+
 
