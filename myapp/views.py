@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,reverse
 from django.contrib import messages
 from .models import *
 from .models import policy
@@ -48,6 +48,9 @@ def page(request):
 def career(request):
     return render(request, 'career.html')
 
+def careers(request):
+    return render(request, 'careers.html')
+
 def grid(request):
     return render(request, 'project-grid.html')
 
@@ -96,6 +99,8 @@ def signup(request):
     return render(request, 'signup.html')
 def login(request):
     return render(request, 'login.html')
+def logout(request):
+    return render(request, 'logout.html')
 def checklogin(request):
     return render(request, 'checklogin.html')
 
@@ -140,7 +145,13 @@ def newsgrid(request):
     return render(request,"news-grid.html",{"policydata":policydata})
 
 def careers(request,pid):
-    data=policy.objects.get(id=pid)
-    return render(request,"career.html",{"data":data})
+    data = policy.objects.get(id=pid)
+    return render(request, "careers.html", {"data": data})
 
-
+def logout(request):
+    try:
+        del request.session['u_name']
+        del request.session['u_password']
+    except:
+        pass
+    return redirect(index04b9)

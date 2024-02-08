@@ -233,6 +233,7 @@
 	</div>
 	
 	<!-- SINGLE PAGE --> 
+	
 	<div class="section pages section-border">
 		<div class="container">
 			<div class="row">
@@ -240,16 +241,15 @@
 					<h2 class="section-heading">
 						{{data.policy_name}}
 					</h2>
-					<div class="section-subheading">{{policydata.policy_details}}</div>
+					<div class="section-subheading">{{data.policy_details}}</div>
 					<ul class="checklist">
-						<li>{{data.}}</li>
-						<li>Easy to claim, sed diam nonummy nibh euismod. Lorem ipsum dolor sit amet.</li>
-						<li>More benefit nonummy nibh euismod. Lorem ipsum dolor sit amet, consectetuer.</li>
+						<li>publication date :{{data.policy_publication_date}}</li>
+						<li>eligible caste:{{data.policy_eligible_castes}}</li>
+						<li>applicabel state:{{data.policy_applicabel_state}}</li>
 					</ul>
 					
 				</div>
 				<div class="col-sm-5 col-md-5">
-					<p>Hello	</p>
 					<img src="/media/{{data.policy_photo}}" alt="" class="img-responsive">
 				</div>
 				
@@ -270,9 +270,9 @@
 
 					<div class="career-tabs" data-example-id="togglable-tabs">
 						<ul id="myTabs" class="nav nav-tabs" role="tablist">
-							<li class="active"><a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Manager</a></li>
-							<li class=""><a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">Marketing</a></li>
-							<li class=""><a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab">Advisor</a></li>
+							<li class="active"><a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Details</a></li>
+							<li class=""><a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">policy type</a></li>
+							<li class=""><a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab">policy agency</a></li>
 							<li class=""><a href="#tab4" aria-controls="tab4" role="tab" data-toggle="tab">Agent</a></li>
 						</ul>
 						<div id="myTabContent" class="tab-content">
@@ -410,7 +410,7 @@
 				
 				<div class="col-sm-6 col-md-3 col-md-offset-2">
 					<div class="people">
-						<img class="user-pic" src="images/say-img-2.jpg" alt="">
+						<img class="user-pic" src="{% static 'images/say-img-2.jpg'%}" alt="">
 					</div>
 				</div>
 				<div class="col-sm-6 col-md-5 col-md-offset-1">
