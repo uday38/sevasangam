@@ -1,7 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.contrib import messages
 from .models import *
 from .models import policy
+from .models import category
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import AuthenticationForm
 
 
 # Create your views here.
@@ -114,21 +118,22 @@ def insertdata(request):
         return render(request, "signup.html")
 
 def checklogin(request):
-    useremail=request.POST["u_email"]
-    userpassword=request.POST["u_password"]
-    try:
-        query=User.objects.get(email=useremail)
-        if check_password(userpassword=query.password):
-            request.session['useremail']=query.email
-            request.session['userid']=query.id
-            print(request.session['userid'])
-            return render(request, 'index04b9.html')
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                messages.info(request, f"Welcome {username}")
+                return redirect('indexo4b9.html')
+            else:
+                messages.error(request, "Invalid username or password")
         else:
-            messages.info(request, 'Incorrect email or password')
-            return render(request, 'signup.html')
-    except User.DoesNotExist:
-        messages.info(request, 'Account does not exist!! Please Sign In')
-        return render(request, 'signup.html')
+            messages.error(request, "Invalid username or password")
+    form = AuthenticationForm()
+    return render(request, 'login.html', {'form': form})
 
 def newsgrid(request):
     policydata=policy.objects.all()
