@@ -8,7 +8,7 @@ class show_User(admin.ModelAdmin):
 admin.site.register(User,show_User)
 
 class show_Policy(admin.ModelAdmin):
-    list_display = ['policy_name','policy_details','policy_type','policy_photo','policy_agency','policy_publication_date','policy_target_audience','policy_eligible_castes','policy_applicable_state','policy_residence_area','policy_disability_status','policy_minority_status','policy_bpl_status','policy_url']
+    list_display = ['policy_name','policy_details','policy_type','admin_photo','policy_agency','policy_publication_date','policy_target_audience','policy_eligible_castes','policy_applicable_state','policy_residence_area','policy_disability_status','policy_minority_status','policy_bpl_status','policy_url']
 admin.site.register(policy,show_Policy)
 
 class show_Category(admin.ModelAdmin):

@@ -69,14 +69,12 @@ class policy(models.Model):
     policy_bpl_status = models.CharField(max_length=1, choices=[('Y', 'Yes'), ('N', 'No')])
     policy_url = models.URLField()
 
+    def admin_photo(self):
+        return mark_safe('<img src="{}" width="100"/>'.format(self.policy_photo.url))
+    policy_photo.allow_tags = True
+
     def __str__(self):
         return self.policy_name
-    
-    # def policy_photo(self):
-    #     return mark_safe('<img src="{}" width="100"/>'.format(self.policy_photo.url))
-    # policy_photo.allow_tags = True
-
-    
     
 class category(models.Model):
     category_name=models.CharField(max_length=20)
