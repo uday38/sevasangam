@@ -1,5 +1,6 @@
+from django.contrib import admin
 from django.urls import path
-from . import views
+from myapp import views
 
 urlpatterns = [
     path('', views.index04b9, name="index04b9.html"),
@@ -18,8 +19,8 @@ urlpatterns = [
     path("FAQ/", views.faq, name="faq.html"),
     path("pricing tabel/", views.pricingtabel, name="pricing-table.html"),
     path("404page/", views.page, name="404page.html"),
-    path("careers/<int:pid>", views.careers, name="careers.html"),
-    path("career/", views.career, name="career.html"),
+    path("careers/", views.careers, name="careers.html"),
+    path("policydetail/<int:pid>/", views.policydetail, name="policy-detail.html"),
     path("project grid/", views.grid, name="project-grid.html"),
     path("project detail/", views.detail, name="project-detail.html"),
     path("news grid/", views.newsgrid, name="news-grid.html"),

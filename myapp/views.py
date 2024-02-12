@@ -1,3 +1,4 @@
+from msilib import PID_TITLE
 from django.shortcuts import render,redirect,reverse
 from django.contrib import messages
 from .models import *
@@ -45,8 +46,8 @@ def pricingtabel(request):
 def page(request):
     return render(request, '404page.html')
 
-def career(request):
-    return render(request, 'career.html')
+def policydetail(request):
+    return render(request, 'policy-detail.html')
 
 def careers(request):
     return render(request, 'careers.html')
@@ -144,9 +145,9 @@ def newsgrid(request):
     policydata=policy.objects.all()
     return render(request,"news-grid.html",{"policydata":policydata})
 
-def careers(request,pid):
+def policydetail(request,pid):
     data = policy.objects.get(id=pid)
-    return render(request, "careers.html", {"data": data})
+    return render(request, "policy-detail.html", {"data": data})
 
 def logout(request):
     try:
