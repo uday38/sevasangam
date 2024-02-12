@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+{% load static %}
+<html class="no-js" lang="en">
+{% load static%}
+<!-- Mirrored from html.rudhisasmito.com/Seva Sangam/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 09 Jan 2024 05:54:02 GMT -->
+<head>
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Seva Sangam - Seva Sangam HTML Template</title>
+    <meta name="description" content="Seva Sangam - Seva Sangam Company HTML Template. It is built using bootstrap 3.3.2 framework, works totally responsive, easy to customise, well commented codes and seo friendly.">
+    <meta name="keywords" content="Seva Sangam, Seva Sangam, company, house insurance, car insurance, life insurance, motorcylcle insurance, boat insurance, travel insurance">
+    <meta name="author" content="rudhisasmito.com">
+
+	<!-- ==============================================
+	Favicons
+	=============================================== -->
+	<link rel="shortcut icon" href="{% static 'images/favicon.ico1.png'%}">
+	<link rel="apple-touch-icon" href="{% static 'images/apple-touch-icon1.png'%}">
+	<link rel="apple-touch-icon" sizes="72x72" href="{% static 'images/apple-touch-icon-72x72.png'%}">
+	<link rel="apple-touch-icon" sizes="114x114" href="{% static 'images/apple-touch-icon-114x114.png'%}">
+
+	<!-- ==============================================
+	CSS VENDOR
+	=============================================== -->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/vendor/bootstrap.min.css'%}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'css/vendor/font-awesome.min.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/vendor/owl.carousel.min.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/vendor/owl.theme.default.min.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/vendor/magnific-popup.css'%}">
+
+	<!-- ==============================================
+	Google Fonts
+	=============================================== -->
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,700i' rel='stylesheet' type='text/css'>
+
+	<!-- ==============================================
+	Custom Stylesheet
+	=============================================== -->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css'%}" />
+
+    <script type="text/javascript" src="{% static 'js/vendor/modernizr.min.js'%}"></script>
+
+</head>
+
+<body>
+
+	<!-- Load page -->
+	<div class="animationload">
+		<div class="loader"></div>
+	</div>
+
+	{% include 'include/header.html' %}
+	<!-- TOPBAR -->
+<!--	<div class="topbar">-->
+<!--		<div class="container">-->
+<!--			<div class="row">-->
+<!--				<div class="col-sm-12 col-md-6">-->
+<!--					<div class="topbar-left">-->
+<!--						<div class="welcome-text">-->
+<!--						Welcome to insurance company, we're here to help you-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--				<div class="col-sm-12 col-md-6">-->
+<!--					<div class="topbar-right">-->
+<!--						<ul class="topbar-menu">-->
+<!--							<li><a href="find-an-agents.html" title="Find An Agents">Find An Agents</a></li>-->
+<!--							<li><a href="faq.html" title="Find An Agents">FAQ's</a></li>-->
+<!--							<li><a href="careers.html" title="Find An Agents">Careers</a></li>-->
+<!--						</ul>-->
+<!--						<ul class="topbar-sosmed">-->
+<!--						<li>-->
+<!--							<a href="#"><i class="fa fa-facebook"></i></a>-->
+<!--						</li>-->
+<!--						<li>-->
+<!--							<a href="#"><i class="fa fa-twitter"></i></a>-->
+<!--						</li>-->
+<!--						<li>-->
+<!--							<a href="#"><i class="fa fa-instagram"></i></a>-->
+<!--						</li>-->
+<!--						<li>-->
+<!--							<a href="#"><i class="fa fa-pinterest"></i></a>-->
+<!--						</li>-->
+<!--						</ul>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--		</div>-->
+<!--	</div>-->
+
+<!--	&lt;!&ndash; TOPBAR LOGO SECTION &ndash;&gt;-->
+<!--	<div class="topbar-logo">-->
+<!--		<div class="container">-->
+
+<!--			<a class="navbar-brand" href="index.html">-->
+<!--				<img src="images/logo.png" alt="" />-->
+<!--			</a>-->
+
+<!--			<div class="contact-info">-->
+<!--				&lt;!&ndash; INFO 1 &ndash;&gt;-->
+<!--				<div class="box-icon-1">-->
+<!--					<div class="icon">-->
+<!--						<div class="fa fa-phone"></div>-->
+<!--					</div>-->
+<!--					<div class="body-content">-->
+<!--						<div class="heading">(0761)654-123987</div>-->
+<!--						info@yoursite.com-->
+<!--					</div>-->
+<!--				</div>-->
+<!--				&lt;!&ndash; INFO 2 &ndash;&gt;-->
+<!--				<div class="box-icon-1">-->
+<!--					<div class="icon">-->
+<!--						<div class="fa fa-clock-o"></div>-->
+<!--					</div>-->
+<!--					<div class="body-content">-->
+<!--						<div class="heading">Mon - Sat 09:00 - 17:00</div>-->
+<!--						Sunday Closed-->
+<!--					</div>-->
+<!--				</div>-->
+<!--				&lt;!&ndash; INFO 3 &ndash;&gt;-->
+<!--				<div class="box-icon-1">-->
+<!--					<div class="icon">-->
+<!--						<div class="fa fa-map-marker"></div>-->
+<!--					</div>-->
+<!--					<div class="body-content">-->
+<!--						<div class="heading">99 S.t Jomblo Park</div>-->
+<!--						Pekanbaru 28292. ID-->
+<!--					</div>-->
+<!--				</div>-->
+
+<!--			</div>-->
+<!--		</div>-->
+<!--	</div>-->
+
+<!--	&lt;!&ndash; NAVBAR SECTION &ndash;&gt;-->
+<!--	<div class="navbar navbar-main">-->
+
+<!--		<div class="container container-nav">-->
+
+<!--			<div class="navbar-header">-->
+<!--				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">-->
+<!--					<span class="icon-bar"></span>-->
+<!--					<span class="icon-bar"></span>-->
+<!--					<span class="icon-bar"></span>-->
+<!--				</button>-->
+
+<!--			</div>-->
+
+<!--			<a href="contact.html" title="" class="btn btn-orange-cta pull-right btn-view-all">GET A QUOTE</a>-->
+
+<!--			<nav class="navbar-collapse collapse">-->
+<!--				<ul class="nav navbar-nav navbar-left">-->
+<!--					<li class="dropdown">-->
+<!--					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">HOME <span class="caret"></span></a>-->
+<!--					  <ul class="dropdown-menu">-->
+<!--						<li><a href="index/">HOMEPAGE 1</a></li>-->
+<!--						<li><a href="index2/">HOMEPAGE 2</a></li>-->
+<!--					  </ul>-->
+<!--					</li>-->
+<!--					<li class="dropdown">-->
+<!--					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ABOUT US <span class="caret"></span></a>-->
+<!--					  <ul class="dropdown-menu">-->
+<!--						<li><a href="/our company/">OUR COMPANY</a></li>-->
+<!--						<li><a href="about history/">COMPANY HISTORY</a></li>-->
+<!--						<li><a href="about team/">OUR TEAM</a></li>-->
+<!--						<li><a href="about partners/">OUR PARTNERS</a></li>-->
+<!--					  </ul>-->
+<!--					</li>-->
+<!--					<li class="dropdown">-->
+<!--					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SERVICES <span class="caret"></span></a>-->
+<!--					  <ul class="dropdown-menu">-->
+<!--						<li><a href="/services/">SERVICES 1</a></li>-->
+<!--						<li><a href="services2/">SERVICES 2</a></li>-->
+<!--						<li><a href="services detail/">SERVICES DETAIL</a></li>-->
+<!--					  </ul>-->
+<!--					</li>-->
+<!--					<li class="dropdown">-->
+<!--					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PAGES <span class="caret"></span></a>-->
+<!--					  <ul class="dropdown-menu">-->
+<!--						<li><a href="/FAQ/">FAQ</a></li>-->
+<!--						<li><a href="pricing table/">PRICING TABLE</a></li>-->
+<!--						<li><a href="404page/">404 PAGE</a></li>-->
+<!--						<li><a href="career/">CAREER</a></li>-->
+<!--					  </ul>-->
+<!--					</li>-->
+<!--					<li class="dropdown">-->
+<!--					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PROJECTS <span class="caret"></span></a>-->
+<!--					  <ul class="dropdown-menu">-->
+<!--						<li><a href="/project grid/">GRID LAYOUT</a></li>-->
+<!--						<li><a href="project detail/">SINGLE PROJECT</a></li>-->
+<!--					  </ul>-->
+<!--					</li>-->
+<!--					<li class="dropdown">-->
+<!--					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">NEWS <span class="caret"></span></a>-->
+<!--					  <ul class="dropdown-menu">-->
+<!--						<li><a href="/news grid/">GRID BAR</a></li>-->
+<!--						<li><a href="news sidebar/">SIDEBAR</a></li>-->
+<!--						<li><a href="news detail/">SINGLE NEWS</a></li>-->
+<!--					  </ul>-->
+<!--					</li>-->
+<!--					<li class="dropdown active">-->
+<!--					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CONTACT <span class="caret"></span></a>-->
+<!--					  <ul class="dropdown-menu">-->
+<!--						<li><a href="/contact/">CONTACT US</a></li>-->
+<!--						<li><a href="contact quote/">GET A QUOTE</a></li>-->
+<!--					  </ul>-->
+<!--					</li>-->
+
+<!--				</ul>-->
+<!--			</nav>-->
+
+
+
+<!--		</div>-->
+<!--    </div>-->
+
+	<!-- BANNER -->
+	<div class="section banner-page contact">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 col-md-12">
+					<div class="title-page">sign in page</div>
+					<ol class="breadcrumb">
+						<li><a href="index/">Sign up</a></li>
+						<li class="active">Login page</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Page -->
+	
+		<div class="section contact">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-4 col-md-4 col-md-push-8">
+					</div>
+				<div class="col-sm-8 col-md-8 col-md-pull-4">
+					<div class="content">
+						<h2 class="section-heading">
+							aadhar details
+						</h2>
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="aadhar_firstname">First Name:</label>
+                                <input class="form-control" id="aadhar_firstname" name="aadhar_firstname">
+                                    <!-- {% for user in users %}
+                                        <option value="{{ user.id }}">{{ user.first_name }} {{ user.last_name }}</option>
+                                    {% endfor %} -->
+                                </input>
+                            </div>
+                            <div class="form-group">
+                                <label for="aadhar_number">Aadhaar Number:</label>
+                                <input type="number" class="form-control" id="aadhar_number" name="aadhar_number" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="aadhar_middlename">Middle Name:</label>
+                                <input type="text" class="form-control" id="aadhar_middlename" name="aadhar_middlename" maxlength="20">
+                            </div>
+                            <div class="form-group">
+                                <label for="lastname">Last Name:</label>
+                                <input type="text" class="form-control" id="lastname" name="lastname" maxlength="20">
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address:</label>
+                                <textarea class="form-control" id="address" name="address" maxlength="20" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="phonenumber">Phone Number:</label>
+                                <input type="number" class="form-control" id="phonenumber" name="phonenumber" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="dob">Date of Birth:</label>
+                                <input type="date" class="form-control" id="dob" name="dob" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cast">Cast:</label>
+                                <input type="number" class="form-control" id="cast" name="cast" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="gender">Gender:</label>
+                                <select class="form-control" id="gender" name="gender">
+                                    <!-- {% for gender_choice in gender_choices %}
+                                        <option value="{{ gender_choice.0 }}">{{ gender_choice.1 }}</option>
+                                    {% endfor %} -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="document">Document:</label>
+                                <input type="text" class="form-control" id="document" name="document" maxlength="50">
+                            </div>
+                            <div class="form-group">
+                                <label for="residencearea">Residence Area:</label>
+                                <input type="text" class="form-control" id="residencearea" name="residencearea" maxlength="50">
+                            </div>
+                            <div class="form-group">
+                                <label for="disability_status">Disability Status:</label>
+                                <select class="form-control" id="disability_status" name="disability_status">
+                                    <!-- {% for disability_choice in disability_status_choices %}
+                                        <option value="{{ disability_choice }}">{{ disability_choice.1 }}</option>
+                                    {% endfor %} -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="minority_status">Minority Status:</label>
+                                <select class="form-control" id="minority_status" name="minority_status">
+                                    <!-- {% for minority_choice in minority_status_choices %}
+                                        <option value="{{ minority_choice.0 }}">{{ minority_choice.1 }}</option>
+                                    {% endfor %} -->
+                                </select>
+                            </div>
+                           
+						
+					 	</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+
+	{% include 'include/footer.html' %}
+
+	<!-- FOOTER SECTION -->
+<!--	<div class="footer">-->
+
+<!--		<div class="container">-->
+
+<!--			<div class="row">-->
+<!--				<div class="col-sm-3 col-md-3">-->
+<!--					<div class="footer-item">-->
+<!--						<img src="images/logo-bottom.png" alt="logo bottom">-->
+<!--						<p>This template is a micro niche for business categories, namely Seva Sangam - Insurance Company HTML Template. there was an excess of this template is using HTML/CSS.</p>-->
+<!--						<div class="footer-sosmed">-->
+<!--							<a href="#" title="">-->
+<!--								<div class="item">-->
+<!--									<i class="fa fa-facebook"></i>-->
+<!--								</div>-->
+<!--							</a>-->
+<!--							<a href="#" title="">-->
+<!--								<div class="item">-->
+<!--									<i class="fa fa-twitter"></i>-->
+<!--								</div>-->
+<!--							</a>-->
+<!--							<a href="#" title="">-->
+<!--								<div class="item">-->
+<!--									<i class="fa fa-instagram"></i>-->
+<!--								</div>-->
+<!--							</a>-->
+<!--							<a href="#" title="">-->
+<!--								<div class="item">-->
+<!--									<i class="fa fa-pinterest"></i>-->
+<!--								</div>-->
+<!--							</a>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--				<div class="col-sm-3 col-md-3">-->
+<!--					<div class="footer-item">-->
+<!--						<div class="footer-title">-->
+<!--							Contact Info-->
+<!--						</div>-->
+<!--						<ul class="list-info">-->
+<!--							<li>-->
+<!--								<div class="info-icon">-->
+<!--									<span class="fa fa-map-marker"></span>-->
+<!--								</div>-->
+<!--								<div class="info-text">99 S.t Jomblo Park Pekanbaru 28292. Indonesia</div> </li>-->
+<!--							<li>-->
+<!--								<div class="info-icon">-->
+<!--									<span class="fa fa-phone"></span>-->
+<!--								</div>-->
+<!--								<div class="info-text">(0761) 654-123987</div>-->
+<!--							</li>-->
+<!--							<li>-->
+<!--								<div class="info-icon">-->
+<!--									<span class="fa fa-envelope"></span>-->
+<!--								</div>-->
+<!--								<div class="info-text">info@yoursite.com</div>-->
+<!--							</li>-->
+<!--							<li>-->
+<!--								<div class="info-icon">-->
+<!--									<span class="fa fa-clock-o"></span>-->
+<!--								</div>-->
+<!--								<div class="info-text">Mon - Sat 09:00 - 17:00</div>-->
+<!--							</li>-->
+<!--						</ul>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--				<div class="col-sm-3 col-md-3">-->
+<!--					<div class="footer-item">-->
+<!--						<div class="footer-title">-->
+<!--							Our Services-->
+<!--						</div>-->
+<!--						<ul class="list">-->
+<!--							<li><a href="service-life-insurance.html" title="">Life Insurance</a></li>-->
+<!--							<li><a href="service-car-insurance.html" title="">Car Insurance</a></li>-->
+<!--							<li><a href="service-travel-insurance.html" title="">Travel Insurance</a></li>-->
+<!--							<li><a href="service-house-insurance.html" title="">House Insurance</a></li>-->
+<!--							<li><a href="service-vehicle-insurance.html" title="">Vehicle Insurance</a></li>-->
+<!--							<li><a href="service-boat-insurance.html" title="">Boat Insurance</a></li>-->
+<!--						</ul>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--				<div class="col-sm-3 col-md-3">-->
+<!--					<div class="footer-item">-->
+<!--						<div class="footer-title">-->
+<!--							Additional Links-->
+<!--						</div>-->
+<!--						<ul class="list">-->
+<!--							<li><a href="our company/" title="">Our Company</a></li>-->
+<!--							<li><a href="about team/" title="">Our Team</a></li>-->
+<!--							<li><a href="about partners/" title="">Our Partners</a></li>-->
+<!--							<li><a href="careers/" title="">Careers</a></li>-->
+<!--							<li><a href="contact us/" title="">Contact Us</a></li>-->
+<!--						</ul>-->
+<!--					</div>-->
+<!--				</div>-->
+
+<!--			</div>-->
+<!--		</div>-->
+
+<!--		<div class="fcopy">-->
+<!--			<div class="container">-->
+<!--				<div class="row">-->
+<!--					<div class="col-sm-12 col-md-12">-->
+<!--						<p class="ftex">&copy; 2017 Seva Sangam by Rudhi Sasmito - All Rights Reserved</p>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--		</div>-->
+
+<!--	</div>-->
+
+<!--	&lt;!&ndash; JS VENDOR &ndash;&gt;-->
+<!--	<script type="text/javascript" src="{% static 'js/vendor/jquery.min.js' %}"></script>-->
+<!--	<script type="text/javascript" src="{% static 'js/vendor/bootstrap.min.js' %}"></script>-->
+<!--	<script type="text/javascript" src="{% static 'js/vendor/jquery.superslides.js' %}"></script>-->
+<!--	<script type="text/javascript" src="{% static 'js/vendor/owl.carousel.js' %}"></script>-->
+<!--	<script type="text/javascript" src="{% static 'js/vendor/bootstrap-hover-dropdown.min.js' %}"></script>-->
+<!--	<script type="text/javascript" src="{% static 'js/vendor/jquery.magnific-popup.min.js' %}"></script>-->
+<!--	&lt;!&ndash; sendmail &ndash;&gt;-->
+<!--	<script type="text/javascript" src="{% static 'js/vendor/validator.min.js' %}"></script>-->
+<!--	<script type="text/javascript" src="{% static 'js/vendor/form-scripts.js' %}"></script>-->
+
+<!--	<script type='text/javascript' src='https://maps.google.com/maps/api/js?sensor=false&amp;ver=4.1.5'></script>-->
+
+<!--	<script type="text/javascript" src="{% static 'js/script.js' %}"></script>-->
+
+</body>
+
+<!-- Mirrored from html.rudhisasmito.com/Seva Sangam/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 09 Jan 2024 05:54:02 GMT -->
+</html>

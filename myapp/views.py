@@ -5,12 +5,16 @@ from .models import policy
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
-# from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404
+
 # from django.core.exceptions import PermissionDenied
 
 
 
 # Create your views here.
+def aadhar(request):
+    return render(request, 'aadhar.html')
+
 def index04b9(request):
     return render(request, 'index04b9.html')
 
@@ -164,3 +168,23 @@ def logout(request):
 #     if not request.user.has_perm('policy.view_policy', data):
 #         raise PermissionDenied
 #     return render(request, 'policy_detail.html', {'policy': data})
+
+
+def aadhar(request):
+    if request.method == 'POST':
+        form = aadhar(request.POST)
+        if form.is_valid():
+            aadhar = form.save(commit=False)
+            aadhar.user = request.user
+            aadhar.save()
+            messages.success(request, 'Aadhaar card saved successfully.')
+            return redirect(reverse('aadhar_detail'))
+    else:
+        form = aadhar()
+    users = User.objects.all()
+    return render(request, 'aadhar.html', {'form': form, 'users': users})
+
+@login_required
+def aadhar(request, aadhar_id):
+    aadhar = aadhar.objects.get(id=aadhar_id)
+    return render(request, 'aadhar.html', {'aadhar': aadhar})
