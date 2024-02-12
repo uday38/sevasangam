@@ -1,12 +1,13 @@
-from msilib import PID_TITLE
 from django.shortcuts import render,redirect,reverse
 from django.contrib import messages
 from .models import *
 from .models import policy
-from .models import category
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
+from django.shortcuts import render, get_object_or_404
+from django.core.exceptions import PermissionDenied
+
 
 
 # Create your views here.
@@ -46,8 +47,7 @@ def pricingtabel(request):
 def page(request):
     return render(request, '404page.html')
 
-def policydetail(request):
-    return render(request, 'policy-detail.html')
+
 
 def careers(request):
     return render(request, 'careers.html')
@@ -145,9 +145,9 @@ def newsgrid(request):
     policydata=policy.objects.all()
     return render(request,"news-grid.html",{"policydata":policydata})
 
-def policydetail(request,pid):
-    data = policy.objects.get(id=pid)
-    return render(request, "policy-detail.html", {"data": data})
+# def policydetail(request,id):
+#     fetch=policy.objects.get(id=id)
+#     return render(request, 'policy-detail.html',{"data":fetch})
 
 def logout(request):
     try:
@@ -156,3 +156,11 @@ def logout(request):
     except:
         pass
     return redirect(index04b9)
+
+
+
+def policydetail(request, id):
+    data = get_object_or_404(data, id=id)
+    if not request.user.has_perm('policy.view_policy', data):
+        raise PermissionDenied
+    return render(request, 'policy_detail.html', {'policy': data})
