@@ -5,8 +5,8 @@ from .models import policy
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
-from django.shortcuts import render, get_object_or_404
-from django.core.exceptions import PermissionDenied
+# from django.shortcuts import render, get_object_or_404
+# from django.core.exceptions import PermissionDenied
 
 
 
@@ -145,9 +145,9 @@ def newsgrid(request):
     policydata=policy.objects.all()
     return render(request,"news-grid.html",{"policydata":policydata})
 
-# def policydetail(request,id):
-#     fetch=policy.objects.get(id=id)
-#     return render(request, 'policy-detail.html',{"data":fetch})
+def policydetail(request,id):
+    fetch=policy.objects.get(id=id)
+    return render(request, 'policy-detail.html',{"data":fetch})
 
 def logout(request):
     try:
@@ -159,8 +159,8 @@ def logout(request):
 
 
 
-def policydetail(request, id):
-    data = get_object_or_404(data, id=id)
-    if not request.user.has_perm('policy.view_policy', data):
-        raise PermissionDenied
-    return render(request, 'policy_detail.html', {'policy': data})
+# def policydetail(request, id):
+#     data = get_object_or_404(data, id=id)
+#     if not request.user.has_perm('policy.view_policy', data):
+#         raise PermissionDenied
+#     return render(request, 'policy_detail.html', {'policy': data})
