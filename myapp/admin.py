@@ -1,11 +1,11 @@
 from django.contrib import admin
-from .models import User, policy, category, Payment, feedback, complain, aadhar,ApplicationTable,ContactTable
+from .models import register_user, policy, category, Payment, feedback, complain, aadhar,ApplicationTable,ContactTable
 
 # Register your models here
 
-class show_User(admin.ModelAdmin):
+class show_register_user(admin.ModelAdmin):
     list_display = ['name','email','password','mobile_no','occupation','status',]
-admin.site.register(User,show_User)
+admin.site.register(register_user,show_register_user)
 
 class show_Policy(admin.ModelAdmin):
     list_display = ['policy_name','policy_details','policy_type','admin_photo','policy_agency','policy_publication_date','policy_target_audience','policy_eligible_castes','policy_applicable_state','policy_residence_area','policy_disability_status','policy_minority_status','policy_bpl_status','policy_url']

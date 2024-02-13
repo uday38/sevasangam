@@ -51,8 +51,6 @@ def pricingtabel(request):
 def page(request):
     return render(request, '404page.html')
 
-
-
 def careers(request):
     return render(request, 'careers.html')
 
@@ -118,7 +116,7 @@ def insertdata(request):
         userpassword = request.POST.get('u_password')
         useroccupation = request.POST.get('u_occupation')
 
-        query= User(name=username, email=useremail, mobile_no=userphonenumber, password=userpassword,
+        query= register_user(name=username, email=useremail, mobile_no=userphonenumber, password=userpassword,
                         occupation=useroccupation)
         query.save()
         messages.success(request," REGISTER SUCCESSFULL!!")
@@ -170,21 +168,114 @@ def logout(request):
 #     return render(request, 'policy_detail.html', {'policy': data})
 
 
-def aadhar(request):
-    if request.method == 'POST':
-        form = aadhar(request.POST)
-        if form.is_valid():
-            aadhar = form.save(commit=False)
-            aadhar.user = request.user
-            aadhar.save()
-            messages.success(request, 'Aadhaar card saved successfully.')
-            return redirect(reverse('aadhar_detail'))
-    else:
-        form = aadhar()
-    users = User.objects.all()
-    return render(request, 'aadhar.html', {'form': form, 'users': users})
+# def aadhar(request):
+#     if request.method == 'POST':
+#         form = aadhar(request.POST)
+#         if form.is_valid():
+#             aadhar = form.save(commit=False)
+#             aadhar.user = request.user
+#             aadhar.save()
+#             messages.success(request, 'Aadhaar card saved successfully.')
+#             return redirect(reverse('aadhar_detail'))
+#     else:
+#         form = aadhar()
+#     users = User.objects.all()
+#     return render(request, 'aadhar.html', {'form': form, 'users': users})
+
+# def aadhar(request):
+#     if request.method == 'POST':
+#         form = aadhar(request.POST, instance=request.user.aadhar)
+#         if form.is_valid():
+#             form.save()
+#             messages.success(request, 'Aadhaar card saved successfully.')
+#             return redirect(reverse('aadhar_detail'))
+#     else:
+#         form = aadhar(instance=request.user.aadhar)
+#     return render(request, 'aadhar.html', {'form': form})
 
 @login_required
-def aadhar(request, aadhar_id):
-    aadhar = aadhar.objects.get(id=aadhar_id)
+def aadhar(request, id):
+    aadhar = aadhar.objects.get(id=id)
     return render(request, 'aadhar.html', {'aadhar': aadhar})
+
+def releventpolicy(request):
+    uid = request.session['loginid']
+
+    ocuu = register_user.objects.filter(id=uid).values('Occupation')
+    area=aadhar.objects.filter(register_id=uid).values('ResidenceArea')
+    area_filter=['Both',area]
+
+    try:
+        filters=aadhar.objects.get(register_id=uid)
+    except aadhar.DoesNotExist:
+        filters = None
+
+    print(aadhar_id)
+    aadhar_avail = False
+
+    if filters is not None:
+        aadhar_avail = True
+        if  filters.DisabilityStatus == 'Yes' and filters.MinorityStatus == 'Yes' and filters.BPLStatus == 'Yes':
+            policy=policy.objects.filter(policytype_in=ocuu, policyResidenceArea_in=area_filter,policyDisabilityStatus='Yes',policyMinorityStatus='Yes',policyBPLStatus='Yes')
+
+            contex = {
+                    'data': policy,
+                    'aadhar_avail': aadhar_avail,
+                }
+        elif  filters.DisabilityStatus == 'Yes' and filters.MinorityStatus == 'No' and filters.BPLStatus == 'No':
+            policy=policy.objects.filter(policytype_icontains=ocuu, policyResidenceArea_in=area_filter,policyDisabilityStatus='Yes',policyMinorityStatus='No',policyBPLStatus='No')
+
+            contex = {
+                    'data': policy,
+                    'aadhar_avail': aadhar_avail,
+                }
+        elif filters.DisabilityStatus == 'No' and filters.MinorityStatus == 'Yes' and filters.BPLStatus == 'No':
+            policy = policy.objects.filter(policytype_icontains=ocuu, policyResidenceArea_in=area_filter,policyDisabilityStatus='No', policyMinorityStatus='Yes', policyBPLStatus='No')
+
+            contex = {
+                'data': policy,
+                'aadhar_avail': aadhar_avail,
+            }
+        elif filters.DisabilityStatus == 'No' and filters.MinorityStatus == 'No' and filters.BPLStatus == 'Yes':
+            policy = policy.objects.filter(policytype_icontains=ocuu, policyResidenceArea_in=area_filter, policyDisabilityStatus='No', policyMinorityStatus='No', policyBPLStatus='Yes')
+            contex = {
+                'data': policy,
+                'aadhar_avail': aadhar_avail,
+            }
+        elif filters.DisabilityStatus == 'No' and filters.MinorityStatus == 'Yes' and filters.BPLStatus == 'Yes':
+            policy = policy.objects.filter(policytype_icontains=ocuu, policyResidenceArea_in=area_filter,policyDisabilityStatus='No', policyMinorityStatus='Yes', policyBPLStatus='Yes')
+            contex = {
+                'data': policy,
+                'aadhar_avail': aadhar_avail,
+            }
+        elif filters.DisabilityStatus == 'Yes' and filters.MinorityStatus == 'NO' and filters.BPLStatus == 'Yes':
+            policy = policy.objects.filter(policytype_icontains=ocuu, policyResidenceArea_in=area_filter,policyDisabilityStatus='Yes', policyMinorityStatus='No', policyBPLStatus='Yes')
+            contex = {
+                'data': policy,
+                'aadhar_avail': aadhar_avail,
+            }
+        elif filters.DisabilityStatus == 'Yes' and filters.MinorityStatus == 'Yes' and filters.BPLStatus == 'No':
+            policy = policy.objects.filter(policytype_icontains=ocuu, policyResidenceArea_in=area_filter,policyDisabilityStatus='Yes', policyMinorityStatus='Yes', policyBPLStatus='No')
+            contex = {
+                'data': policy,
+                'aadhar_avail': aadhar_avail,
+            }
+        else:
+            policy = policy.objects.filter(policytype_icontains=ocuu, policyResidenceArea_in=area_filter)
+            contex = {
+                'data': policy,
+                'aadhar_avail': aadhar_avail,
+            }
+        # print("check upper")
+        # print(aadhar_avail)
+        # messages.success(request, 'AADHAR DETAILS ADDED SUCCESSFULLY!!')
+        return render(request, 'releventpolicy.html', contex)
+    else:
+        aadhar_avail = False
+        # print("check lower")
+        # print(aadhar_avail)
+        acontext = {
+            'aadhar_avail': aadhar_avail
+        }
+        # messages.error(request, 'Add Aadhar Details')
+        return render(request, 'releventpolicy.html', acontext)

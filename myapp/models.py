@@ -26,22 +26,37 @@ gender_choices = [
         ('F', 'Female'),
         ('O', 'Other'),
     ]
-disability_status_choices = [
-        ('Y', 'Yes'),
-        ('N', 'No'),
+POLICY_TYPE_CHOICES = [
+        ('HEALTH', 'Health'),
+        ('LIFE', 'Life'),
+        ('AUTO', 'Auto'),
+        ('HOME', 'Home'),
+        ('TRAVEL', 'Travel'),
     ]
-minority_status_choices = [
-    ('Y', 'Yes'),
-    ('N', 'No'),
-]
-bpl_status_choices = [
-    ('Y', 'Yes'),
-    ('N', 'No'),
-]
+
+POLICY_RESIDENCE_AREA_CHOICES = [
+        ('URBAN', 'Urban'),
+        ('RURAL', 'Rural'),
+        ('BOTH', 'Both'),
+    ]
+disability_status_choices= [
+        ('YES', 'Yes'),
+        ('NO', 'No'),
+    ]
+
+minority_status_choices= [
+        ('YES', 'Yes'),
+        ('NO', 'No'),
+    ]
+
+bpl_status_choices= [
+        ('YES', 'Yes'),
+        ('NO', 'No'),
+    ]
 
 
 # Create your models here.
-class User(models.Model):
+class register_user(models.Model):
     name = models.CharField(max_length=255)
     email = models.EmailField(unique=True)
     password = models.CharField(max_length=255)
@@ -55,17 +70,17 @@ class User(models.Model):
 class policy(models.Model):
     policy_name = models.CharField(max_length=255)
     policy_details = models.TextField()
-    policy_type = models.CharField(max_length=50)
+    policy_type = models.CharField(max_length=50, choices=POLICY_TYPE_CHOICES)
     policy_photo = models.ImageField(upload_to='photos')
     policy_agency = models.CharField(max_length=100)
-    policy_publication_date = models.DateTimeField(max_length=100)
+    policy_publication_date = models.DateTimeField()
     policy_target_audience = models.CharField(max_length=100)
     policy_eligible_castes = models.CharField(max_length=100)
     policy_applicable_state = models.CharField(max_length=50)
-    policy_residence_area = models.CharField(max_length=50)
-    policy_disability_status = models.CharField(max_length=1, choices=[('Y', 'Yes'), ('N', 'No')])
-    policy_minority_status = models.CharField(max_length=1, choices=[('Y', 'Yes'), ('N', 'No')])
-    policy_bpl_status = models.CharField(max_length=1, choices=[('Y', 'Yes'), ('N', 'No')])
+    policy_residence_area = models.CharField(max_length=50, choices=POLICY_RESIDENCE_AREA_CHOICES)
+    policy_disability_status = models.CharField(max_length=10, choices=disability_status_choices)
+    policy_minority_status = models.CharField(max_length=10, choices=minority_status_choices)
+    policy_bpl_status = models.CharField(max_length=3, choices=bpl_status_choices)
     policy_url = models.URLField()
 
     def admin_photo(self):
@@ -85,7 +100,7 @@ class Payment(models.Model):
     payment_status=models.IntegerField(choices=paystatus)
 
 class feedback(models.Model):
-    user_id=models.ForeignKey(User,on_delete=models.CASCADE)
+    user_id=models.ForeignKey(register_user,on_delete=models.CASCADE)
     rating=models.IntegerField()
     comments=models.TextField(max_length=20)
 
@@ -98,7 +113,7 @@ class complain(models.Model):
 
 
 class aadhar(models.Model):
-    aadhar_firstname=models.ForeignKey(User,on_delete=models.CASCADE)
+    aadhar_firstname=models.ForeignKey(register_user,on_delete=models.CASCADE)
     aadhar_number=models.BigIntegerField()
     aadhar_middlename=models.CharField(max_length=20)
     lastname=models.CharField(max_length=20)
@@ -109,9 +124,9 @@ class aadhar(models.Model):
     gender = models.CharField(max_length=1, choices=gender_choices)
     document = models.CharField(max_length=50)
     residencearea = models.CharField(max_length=50)
-    disability_status = models.CharField(max_length=1, choices=disability_status_choices)
-    minority_status = models.CharField(max_length=1, choices=minority_status_choices)
-    bpl_status = models.CharField(max_length=1, choices=bpl_status_choices)
+    disability_status = models.CharField(max_length=3, choices=disability_status_choices)
+    minority_status = models.CharField(max_length=3, choices=minority_status_choices)
+    bpl_status = models.CharField(max_length=3, choices=bpl_status_choices)
 
     def __str__(self):
         return self.aadhar_firstname

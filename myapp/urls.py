@@ -36,5 +36,5 @@ urlpatterns = [
     path("lifeinsurance/",views.lifeinsurance, name="service life insurance.html"),
     path("travelinsurance/",views.travelinsurance, name="service travel insurance.html"),
     path("vehicalinsurance/",views.vehicalinsurance, name="service vehical insurance.html"),
-    path('aadhar/', views.aadhar, name="aadhar.html"),
+    path('aadhar/<int:id>', views.aadhar, name="aadhar.html"),
 ]
