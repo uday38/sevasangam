@@ -125,31 +125,52 @@ def insertdata(request):
         messages.success(request,"UNABLE TO REGISTER!!")
         return render(request, "signup.html")
 
+# def checklogin(request):
+#     if request.method == 'POST':
+#         form = AuthenticationForm(request, data=request.POST)
+#         if form.is_valid():
+#             username = form.cleaned_data.get('username')
+#             password = form.cleaned_data.get('password')
+#             user = authenticate(request, username=username, password=password)
+#             if user is not None:
+#                 login(request, user)
+#                 messages.info(request, f"Welcome {username}")
+#                 return redirect('indexo4b9.html')
+#             else:
+#                 messages.error(request, "Invalid username or password")
+#         else:
+#             messages.error(request, "Invalid username or password")
+#     form = AuthenticationForm()
+#     return render(request, 'login.html', {'form': form})
+    
 def checklogin(request):
-    if request.method == 'POST':
-        form = AuthenticationForm(request, data=request.POST)
-        if form.is_valid():
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password')
-            user = authenticate(request, username=username, password=password)
-            if user is not None:
-                login(request, user)
-                messages.info(request, f"Welcome {username}")
-                return redirect('indexo4b9.html')
-            else:
-                messages.error(request, "Invalid username or password")
-        else:
-            messages.error(request, "Invalid username or password")
-    form = AuthenticationForm()
-    return render(request, 'login.html', {'form': form})
+    useremail=request.POST["u_email"]
+    userpaswd=request.POST["u_password"]
+    try:
+        query = register_user.objects.get(email=useremail, password=userpaswd)
+        request.session['user_email'] = query.email
+        request.session['user_id'] = query.id
+        print(request.session['user_id'])
+    except register_user.DoesNotExist:
+        query=None
+    if query is not None:
+        messages.info(request,'Login successful!!')
+
+        return redirect(index04b9)
+    else:
+        messages.info(request,'Acount does not exist!! please sign in')
+    return render(request,'signup.html')
+
+def dashboard(request):
+    return render(request,'dashboard.html')
 
 def newsgrid(request):
     policydata=policy.objects.all()
     return render(request,"news-grid.html",{"policydata":policydata})
 
 def policydetail(request,id):
-    fetch=policy.objects.get(id=id)
-    return render(request, 'policy-detail.html',{"data":fetch})
+    data=policy.objects.get(id=id)
+    return render(request, 'policy-detail.html',{"data":data})
 
 def logout(request):
     try:
@@ -158,10 +179,6 @@ def logout(request):
     except:
         pass
     return redirect(index04b9)
-
-
-
-
 
 
 def aadhar(request):
@@ -175,19 +192,10 @@ def aadhar(request):
             return redirect(reverse('aadhar_detail'))
     else:
         form = aadhar()
-    users = User.objects.all()
+    users = register_user.objects.all()
     return render(request, 'aadhar.html', {'form': form, 'users': users})
 
-# def aadhar(request):
-#     if request.method == 'POST':
-#         form = aadhar(request.POST, instance=request.user.aadhar)
-#         if form.is_valid():
-#             form.save()
-#             messages.success(request, 'Aadhaar card saved successfully.')
-#             return redirect(reverse('aadhar_detail'))
-#     else:
-#         form = aadhar(instance=request.user.aadhar)
-#     return render(request, 'aadhar.html', {'form': form})
+
 
 @login_required
 def aadhar(request, id):
