@@ -181,26 +181,26 @@ def logout(request):
     return redirect(index04b9)
 
 
-def aadhar(request):
-    if request.method == 'POST':
-        form = aadhar(request.POST)
-        if form.is_valid():
-            aadhar = form.save(commit=False)
-            aadhar.user = request.user
-            aadhar.save()
-            messages.success(request, 'Aadhaar card saved successfully.')
-            return redirect(reverse('aadhar_detail'))
-    else:
-        form = aadhar()
-    users = register_user.objects.all()
-    return render(request, 'aadhar.html', {'form': form, 'users': users})
+# def aadhar(request):
+#     if request.method == 'POST':
+#         form = aadhar(request.POST)
+#         if form.is_valid():
+#             aadhar = form.save(commit=False)
+#             aadhar.user = request.user
+#             aadhar.save()
+#             messages.success(request, 'Aadhaar card saved successfully.')
+#             return redirect(reverse('aadhar_detail'))
+#     else:
+#         form = aadhar()
+#     users = register_user.objects.all()
+#     return render(request, 'aadhar.html', {'form': form, 'users': users})
 
 
 
-@login_required
-def aadhar(request, id):
-    aadhar = aadhar.objects.get(id=id)
-    return render(request, 'aadhar.html', {'aadhar': aadhar})
+# @login_required
+# def aadhar(request, id):
+#     aadhar = aadhar.objects.get(id=id)
+#     return render(request, 'aadhar.html', {'aadhar': aadhar})
 
 def releventpolicy(request):
     uid = request.session['loginid']

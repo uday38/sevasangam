@@ -280,15 +280,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="cast">Cast:</label>
-                                <input type="number" class="form-control" id="cast" name="cast" required>
+                                <input type="text" class="form-control" id="cast" name="cast" required>
                             </div>
                             <div class="form-group">
                                 <label for="gender">Gender:</label>
-                                <select class="form-control" id="gender" name="gender">
-                                    <!-- {% for gender_choice in gender_choices %}
-                                        <option value="{{ gender_choice.0 }}">{{ gender_choice.1 }}</option>
-                                    {% endfor %} -->
-                                </select>
+                                <input type="text" class="form-control" id="gender" name="gender" required>
                             </div>
                             <div class="form-group">
                                 <label for="document">Document:</label>
@@ -300,18 +296,12 @@
                             </div>
                             <div class="form-group">
                                 <label for="disability_status">Disability Status:</label>
-                                <select class="form-control" id="disability_status" name="disability_status">
-                                    <!-- {% for disability_choice in disability_status_choices %}
-                                        <option value="{{ disability_choice }}">{{ disability_choice.1 }}</option>
-                                    {% endfor %} -->
-                                </select>
+                                <select class="form-control" id="disability_status" name="disability_status"></select>
                             </div>
                             <div class="form-group">
                                 <label for="minority_status">Minority Status:</label>
                                 <select class="form-control" id="minority_status" name="minority_status">
-                                    <!-- {% for minority_choice in minority_status_choices %}
-                                        <option value="{{ minority_choice.0 }}">{{ minority_choice.1 }}</option>
-                                    {% endfor %} -->
+                                    </select>
                                 </select>
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>

@@ -120,7 +120,7 @@ class aadhar(models.Model):
     address=models.TextField(max_length=20)
     phonenumber=models.BigIntegerField()
     dob = models.DateField()
-    cast = models.IntegerField()
+    cast = models.CharField(max_length=10)
     gender = models.CharField(max_length=1, choices=gender_choices)
     document = models.CharField(max_length=50)
     residencearea = models.CharField(max_length=50)
