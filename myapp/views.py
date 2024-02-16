@@ -2,13 +2,6 @@ from django.shortcuts import render,redirect,reverse
 from django.contrib import messages
 from .models import *
 from .models import policy
-from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import AuthenticationForm
-from django.shortcuts import render, get_object_or_404
-
-# from django.core.exceptions import PermissionDenied
-
 
 
 # Create your views here.
@@ -106,6 +99,8 @@ def logout(request):
     return render(request, 'logout.html')
 def checklogin(request):
     return render(request, 'checklogin.html')
+def aadhardata(request):
+    return render(request, 'aadhardata.html')
 
 
 def insertdata(request):
@@ -125,23 +120,6 @@ def insertdata(request):
         messages.success(request,"UNABLE TO REGISTER!!")
         return render(request, "signup.html")
 
-# def checklogin(request):
-#     if request.method == 'POST':
-#         form = AuthenticationForm(request, data=request.POST)
-#         if form.is_valid():
-#             username = form.cleaned_data.get('username')
-#             password = form.cleaned_data.get('password')
-#             user = authenticate(request, username=username, password=password)
-#             if user is not None:
-#                 login(request, user)
-#                 messages.info(request, f"Welcome {username}")
-#                 return redirect('indexo4b9.html')
-#             else:
-#                 messages.error(request, "Invalid username or password")
-#         else:
-#             messages.error(request, "Invalid username or password")
-#     form = AuthenticationForm()
-#     return render(request, 'login.html', {'form': form})
     
 def checklogin(request):
     useremail=request.POST["u_email"]
@@ -180,14 +158,11 @@ def logout(request):
         pass
     return redirect(index04b9)
 
-
-
-
 def releventpolicy(request):
-    uid = request.session['loginid']
+    uid = request.session['user_id']
 
-    ocuu = register_user.objects.filter(id=uid).values('Occupation')
-    area=aadhar.objects.filter(register_id=uid).values('ResidenceArea')
+    ocuu = register_user.objects.filter(id=uid).values('occupation')
+    area=aadhar.objects.filter(register_id=uid).values('residencearea')
     area_filter=['Both',area]
 
     try:
@@ -195,7 +170,7 @@ def releventpolicy(request):
     except aadhar.DoesNotExist:
         filters = None
 
-    print(aadhar_id)
+    # print(aadhar_id)
     aadhar_avail = False
 
     if filters is not None:
@@ -248,13 +223,13 @@ def releventpolicy(request):
         else:
             policy = policy.objects.filter(policytype_icontains=ocuu, policyResidenceArea_in=area_filter)
             contex = {
-                'data': policy,
+                'policydata': policy,
                 'aadhar_avail': aadhar_avail,
             }
         # print("check upper")
         # print(aadhar_avail)
         # messages.success(request, 'AADHAR DETAILS ADDED SUCCESSFULLY!!')
-        return render(request, 'releventpolicy.html', contex)
+        return render(request, 'relevent_policy.html', contex)
     else:
         aadhar_avail = False
         # print("check lower")
@@ -263,4 +238,28 @@ def releventpolicy(request):
             'aadhar_avail': aadhar_avail
         }
         # messages.error(request, 'Add Aadhar Details')
-        return render(request, 'releventpolicy.html', acontext)
+        return render(request, 'relevent_policy.html', acontext)
+    
+def aadhardata(request):
+    if request.method == 'POST':
+                aadharfirstname=request.post.get['aadhar_firstname'],
+                aadharnumber=request.post.get['aadhar_number'],
+                aadharmiddlename=request.post.get['aadhar_middlename'],
+                lastname=request.post.get['lastname'],
+                address=request.post.get['address'],
+                phonenumber=request.post.get['phonenumber'],
+                dob=request.post.get['dob'],
+                cast=request.post.get['cast'],
+                gender=request.post.get['gender'],
+                photo=request.post.get['photo'],
+                residencearea=request.post.get['residencearea'],
+                disabilitystatus=request.post.get['disability_status'],
+                minoritystatus=request.post.get['minority_status']
+                bplstatus=request.post.get['bpl_status']
+
+                query=aadhar(aadhar_firstname=aadharfirstname,aadhar_number=aadharnumber,aadhar_middlename=aadharmiddlename,lastname=lastname,address=address,phonenumber=phonenumber,dob=dob,cast=cast,gender=gender,photo=photo,residencearea=residencearea,disability_status=disabilitystatus,minority_status=minoritystatus,bpl_status=bplstatus)
+                query.save()
+                messages.success(request, 'AADHAR DETAILS ADDED SUCCESSFULLY!!')
+                return render(request, 'relevent_policy.html')
+    else:
+        return render(request, 'aadhar.html')

@@ -21,6 +21,8 @@ urlpatterns = [
     path("404page/", views.page, name="404page.html"),
     path("careers/", views.careers, name="careers.html"),
     path("policydetail/<int:id>", views.policydetail, name="policy-detail.html"),
+    path("relevent_policy", views.releventpolicy, name="releventpolicy"),
+
     path("project grid/", views.grid, name="project-grid.html"),
     path("project detail/", views.detail, name="project-detail.html"),
     path("news grid/", views.newsgrid, name="news-grid.html"),
@@ -37,4 +39,6 @@ urlpatterns = [
     path("travelinsurance/",views.travelinsurance, name="service travel insurance.html"),
     path("vehicalinsurance/",views.vehicalinsurance, name="service vehical insurance.html"),
     path('aadhar/', views.aadhar, name="aadhar.html"),
+    path('aadhardata', views.aadhardata, name="aadhardata"),
+
 ]

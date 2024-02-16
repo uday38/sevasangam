@@ -122,14 +122,14 @@ class aadhar(models.Model):
     dob = models.DateField()
     cast = models.CharField(max_length=10)
     gender = models.CharField(max_length=1, choices=gender_choices)
-    document = models.CharField(max_length=50)
+    document = models.ImageField(upload_to='photos')
     residencearea = models.CharField(max_length=50)
     disability_status = models.CharField(max_length=3, choices=disability_status_choices)
     minority_status = models.CharField(max_length=3, choices=minority_status_choices)
     bpl_status = models.CharField(max_length=3, choices=bpl_status_choices)
 
     def __str__(self):
-        return self.aadhar_firstname
+        return self.aadhar_middlename
 
 class ApplicationTable(models.Model):
     reg_id = models.CharField(max_length=20, unique=True)
