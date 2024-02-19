@@ -137,7 +137,7 @@ def checklogin(request):
         return redirect(index04b9)
     else:
         messages.info(request,'Acount does not exist!! please sign in')
-    
+        return redirect(login)
 
 def logout(request):
     try:
@@ -264,3 +264,6 @@ def aadhardata(request):
                 query.save()
                 messages.success(request, 'AADHAR DETAILS ADDED SUCCESSFULLY!!')
                 return render(request, 'aadhar.html')
+    else:
+        messages.error(request, 'Add Aadhar Details')
+        return render(request, 'aadhar.html')
