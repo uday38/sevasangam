@@ -141,9 +141,11 @@
 				</button>
 
 			</div>
-
-			<a href="contact/" title="" class="btn btn-orange-cta pull-right btn-view-all">GET A QUOTE</a>
-
+			{% if request.session.u_id %}
+			<a href="logout" title="" class="btn btn-orange-cta pull-right btn-view-all">Log Out</a>
+			{% else %}
+			<a href="login" title="" class="btn btn-orange-cta pull-right btn-view-all">Log in</a>
+			{% endif %}
 			<nav class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-left">
 					<li class="dropdown">

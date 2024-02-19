@@ -123,12 +123,12 @@ def insertdata(request):
     
 def checklogin(request):
     useremail=request.POST["u_email"]
-    userpaswd=request.POST["u_password"]
+    userpassword=request.POST["u_password"]
     try:
-        query = register_user.objects.get(email=useremail, password=userpaswd)
+        query = register_user.objects.get(email=useremail, password=userpassword)
         request.session['user_email'] = query.email
         request.session['user_id'] = query.id
-        print(request.session['user_id'])
+    
     except register_user.DoesNotExist:
         query=None
     if query is not None:
@@ -137,7 +137,16 @@ def checklogin(request):
         return redirect(index04b9)
     else:
         messages.info(request,'Acount does not exist!! please sign in')
-    return render(request,'signup.html')
+    
+
+def logout(request):
+    try:
+        del request.session['u_name']
+        del request.session['u_password']
+        messages.success(request,"LOGOUT SUCCESSFULL!!")
+    except:
+        pass
+    return redirect(index04b9)
 
 def dashboard(request):
     return render(request,'dashboard.html')
@@ -150,13 +159,7 @@ def policydetail(request,id):
     data=policy.objects.get(id=id)
     return render(request, 'policy-detail.html',{"data":data})
 
-def logout(request):
-    try:
-        del request.session['u_name']
-        del request.session['u_password']
-    except:
-        pass
-    return redirect(index04b9)
+
 
 def releventpolicy(request):
     uid = request.session['user_id']
@@ -260,6 +263,4 @@ def aadhardata(request):
                 query=aadhar(aadhar_firstname=aadharfirstname,aadhar_number=aadharnumber,aadhar_middlename=aadharmiddlename,lastname=lastname,address=address,phonenumber=phonenumber,dob=dob,cast=cast,gender=gender,photo=photo,residencearea=residencearea,disability_status=disabilitystatus,minority_status=minoritystatus,bpl_status=bplstatus)
                 query.save()
                 messages.success(request, 'AADHAR DETAILS ADDED SUCCESSFULLY!!')
-                return render(request, 'relevent_policy.html')
-    else:
-        return render(request, 'aadhar.html')
+                return render(request, 'aadhar.html')
