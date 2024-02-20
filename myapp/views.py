@@ -5,7 +5,7 @@ from .models import policy
 
 
 # Create your views here.
-def aadhar(request):
+def aadhars(request):
     return render(request, 'aadhar.html')
 
 def index04b9(request):
@@ -128,7 +128,7 @@ def checklogin(request):
         query = register_user.objects.get(email=useremail, password=userpassword)
         request.session['user_email'] = query.email
         request.session['user_id'] = query.id
-    
+        print(request.session['user_id'])
     except register_user.DoesNotExist:
         query=None
     if query is not None:
@@ -141,8 +141,8 @@ def checklogin(request):
 
 def logout(request):
     try:
-        del request.session['u_name']
-        del request.session['u_password']
+        del request.session['user_email']
+        del request.session['user_id']
         messages.success(request,"LOGOUT SUCCESSFULL!!")
     except:
         pass
@@ -165,11 +165,11 @@ def releventpolicy(request):
     uid = request.session['user_id']
 
     ocuu = register_user.objects.filter(id=uid).values('occupation')
-    area=aadhar.objects.filter(register_id=uid).values('residencearea')
+    area=aadhar.objects.filter(user_id=uid).values('residencearea')
     area_filter=['Both',area]
 
     try:
-        filters=aadhar.objects.get(register_id=uid)
+        filters=aadhar.objects.get(user_id=uid)
     except aadhar.DoesNotExist:
         filters = None
 
@@ -179,7 +179,7 @@ def releventpolicy(request):
     if filters is not None:
         aadhar_avail = True
         if  filters.disability_status == 'Yes' and filters.minority_status == 'Yes' and filters.bpl_status == 'Yes':
-            policy=policy.objects.filter(policy_type_in=ocuu, policy_residence_area_in=area_filter,policyDisabilityStatus='Yes',policyMinorityStatus='Yes',policyBPLStatus='Yes')
+            policy=policy.objects.filter(policy_type_in=ocuu, policy_residence_area_in=area_filter,policy_disability_Status='Yes',policy_minority_Status='Yes',policy_bpl_Status='Yes')
 
             contex = {
                     'data': policy,
@@ -244,10 +244,10 @@ def releventpolicy(request):
         return render(request, 'relevent_policy.html', acontext)
     
 def aadhardata(request):
-    if request.method == 'post':
-        Aadharfirstname = request.POST.get('aadhar_firstname')
-        Aadharnumber = request.POST.get('aadhar_number')
-        Aadharmiddlename = request.POST.get('aadhar_middlename')
+    if request.method == 'POST':
+        Aadharfirstname = request.session['user_id']
+        Aadharnumber = request.POST.get('aadharnumber')
+        Aadharmiddlename = request.POST.get('aadharmiddlename')
         Lastname = request.POST.get('lastname')
         Address = request.POST.get('address')
         Phonenumber = request.POST.get('phonenumber')
@@ -256,14 +256,14 @@ def aadhardata(request):
         Gender = request.POST.get('gender')
         Photo = request.FILES.get('photo')
         Residencearea = request.POST.get('residencearea')
-        Disabilitystatus = request.POST.get('disability_status')
-        Minoritystatus = request.POST.get('minority_status')
-        Bplstatus = request.POST.get('bpl_status')
+        Disabilitystatus = request.POST.get('disabilitystatus')
+        Minoritystatus = request.POST.get('minoritystatus')
+        Bplstatus = request.POST.get('bplstatus')
 
-        query = aadhar(aadhar_firstname=Aadharfirstname, aadhar_number=Aadharnumber, aadhar_middlename=Aadharmiddlename, lastname=Lastname, address=Address, phonenumber=Phonenumber, dob=Dob, cast=Cast, gender=Gender, photo=Photo, residencearea=Residencearea, disability_status=Disabilitystatus, minority_status=Minoritystatus, bpl_status=Bplstatus )
+        query = aadhar(user_id=register_user(id=Aadharfirstname), aadhar_number=Aadharnumber, aadhar_middlename=Aadharmiddlename, lastname=Lastname, address=Address, phonenumber=Phonenumber, dob=Dob, cast=Cast, gender=Gender, document=Photo, residencearea=Residencearea, disability_status=Disabilitystatus, minority_status=Minoritystatus, bpl_status=Bplstatus )
         query.save()
         messages.success(request, 'AADHAR DETAILS ADDED SUCCESSFULLY!!')
         return render(request, 'aadhar.html')
     else:
-        messages.error(request, 'Add Aadhar Details')
+        messages.error(request, 'Unable to Add Aadhar Details')
         return render(request, 'aadhar.html')

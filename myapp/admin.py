@@ -28,7 +28,7 @@ class show_Complain(admin.ModelAdmin):
 admin.site.register(complain,show_Complain)
 
 class show_Aadhar(admin.ModelAdmin):
-    list_display = ['aadhar_firstname','aadhar_number','aadhar_middlename','lastname','address','phonenumber','dob','cast','gender','document','residencearea','disability_status','minority_status','bpl_status']
+    list_display = ['user_id','aadhar_number','aadhar_middlename','lastname','address','phonenumber','dob','cast','gender','document','residencearea','disability_status','minority_status','bpl_status']
 admin.site.register(aadhar,show_Aadhar)
 
 class show_ApplicationTabel(admin.ModelAdmin):

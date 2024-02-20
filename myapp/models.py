@@ -113,7 +113,7 @@ class complain(models.Model):
 
 
 class aadhar(models.Model):
-    aadhar_firstname=models.ForeignKey(register_user,on_delete=models.CASCADE)
+    user_id=models.ForeignKey(register_user,on_delete=models.CASCADE)
     aadhar_number=models.BigIntegerField()
     aadhar_middlename=models.CharField(max_length=20)
     lastname=models.CharField(max_length=20)
