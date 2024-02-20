@@ -178,8 +178,8 @@ def releventpolicy(request):
 
     if filters is not None:
         aadhar_avail = True
-        if  filters.DisabilityStatus == 'Yes' and filters.MinorityStatus == 'Yes' and filters.BPLStatus == 'Yes':
-            policy=policy.objects.filter(policytype_in=ocuu, policyResidenceArea_in=area_filter,policyDisabilityStatus='Yes',policyMinorityStatus='Yes',policyBPLStatus='Yes')
+        if  filters.disability_status == 'Yes' and filters.minority_status == 'Yes' and filters.bpl_status == 'Yes':
+            policy=policy.objects.filter(policy_type_in=ocuu, policy_residence_area_in=area_filter,policyDisabilityStatus='Yes',policyMinorityStatus='Yes',policyBPLStatus='Yes')
 
             contex = {
                     'data': policy,
@@ -244,26 +244,26 @@ def releventpolicy(request):
         return render(request, 'relevent_policy.html', acontext)
     
 def aadhardata(request):
-    if request.method == 'POST':
-                aadharfirstname=request.post.get['aadhar_firstname'],
-                aadharnumber=request.post.get['aadhar_number'],
-                aadharmiddlename=request.post.get['aadhar_middlename'],
-                lastname=request.post.get['lastname'],
-                address=request.post.get['address'],
-                phonenumber=request.post.get['phonenumber'],
-                dob=request.post.get['dob'],
-                cast=request.post.get['cast'],
-                gender=request.post.get['gender'],
-                photo=request.post.get['photo'],
-                residencearea=request.post.get['residencearea'],
-                disabilitystatus=request.post.get['disability_status'],
-                minoritystatus=request.post.get['minority_status']
-                bplstatus=request.post.get['bpl_status']
+    if request.method == 'post':
+        Aadharfirstname = request.POST.get('aadhar_firstname')
+        Aadharnumber = request.POST.get('aadhar_number')
+        Aadharmiddlename = request.POST.get('aadhar_middlename')
+        Lastname = request.POST.get('lastname')
+        Address = request.POST.get('address')
+        Phonenumber = request.POST.get('phonenumber')
+        Dob = request.POST.get('dob')
+        Cast = request.POST.get('cast')
+        Gender = request.POST.get('gender')
+        Photo = request.FILES.get('photo')
+        Residencearea = request.POST.get('residencearea')
+        Disabilitystatus = request.POST.get('disability_status')
+        Minoritystatus = request.POST.get('minority_status')
+        Bplstatus = request.POST.get('bpl_status')
 
-                query=aadhar(aadhar_firstname=aadharfirstname,aadhar_number=aadharnumber,aadhar_middlename=aadharmiddlename,lastname=lastname,address=address,phonenumber=phonenumber,dob=dob,cast=cast,gender=gender,photo=photo,residencearea=residencearea,disability_status=disabilitystatus,minority_status=minoritystatus,bpl_status=bplstatus)
-                query.save()
-                messages.success(request, 'AADHAR DETAILS ADDED SUCCESSFULLY!!')
-                return render(request, 'aadhar.html')
+        query = aadhar(aadhar_firstname=Aadharfirstname, aadhar_number=Aadharnumber, aadhar_middlename=Aadharmiddlename, lastname=Lastname, address=Address, phonenumber=Phonenumber, dob=Dob, cast=Cast, gender=Gender, photo=Photo, residencearea=Residencearea, disability_status=Disabilitystatus, minority_status=Minoritystatus, bpl_status=Bplstatus )
+        query.save()
+        messages.success(request, 'AADHAR DETAILS ADDED SUCCESSFULLY!!')
+        return render(request, 'aadhar.html')
     else:
         messages.error(request, 'Add Aadhar Details')
         return render(request, 'aadhar.html')

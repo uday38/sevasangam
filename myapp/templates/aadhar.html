@@ -244,14 +244,10 @@
 						<h2 class="section-heading">
 							aadhar details
 						</h2>
-                        <form action="/releventpolicy" method="post">{% csrf_token %}
+                        <form action="/aadhardata" method="post">{% csrf_token %}
                             <div class="form-group">
                                 <label for="aadhar_firstname">First Name:</label>
                                 <input class="form-control" id="aadharfirstname" name="aadharfirstname">
-                                    <!-- {% for user in users %}
-                                        <option value="{{ user.id }}">{{ user.first_name }} {{ user.last_name }}</option>
-                                    {% endfor %} -->
-                                </input>
                             </div>
                             <div class="form-group">
                                 <label for="aadhar_number">Aadhaar Number:</label>
@@ -283,10 +279,15 @@
                             </div>
                             <div class="form-group">
                                 <label for="gender">Gender:</label>
-                                <input type="text" class="form-control" id="gender" name="gender" required>
+                                <select class="form-control" id="gender" name="gender" required>
+                                    <option value="#">Select</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
                             </div>
                             <div class="form-group">
-                                <label for="photo">Select a photo:</label>
+                                <label for="photo">Select a Aadhar card photo:</label>
                                 <input type="file" class="form-control" id="photo" name="photo">
                             </div>
                             
@@ -324,18 +325,11 @@
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
                     </div>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-                    
-					 	</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	
-
+                </div>
+            </div>
+        </div>
+    </div>
+    
 	{% include 'include/footer.html' %}
 
 	<!-- FOOTER SECTION -->
