@@ -135,7 +135,7 @@ def checklogin(request):
         messages.success(request,'Login successful!!')
         return redirect(index04b9)
     else:
-        messages.success(request,'Acount does not exist!! please sign in')
+        messages.error(request,'Acount does not exist!! please sign in')
         return redirect(login)
 
 def logout(request):
@@ -168,7 +168,7 @@ def releventpolicy(request):
     area_filter=['Both',area]
 
     try:
-        filters = aadhar.objects.get(user_id=uid)
+        filters = aadhar.objects.get(id=uid)
     except aadhar.DoesNotExist:
         filters = None
 
