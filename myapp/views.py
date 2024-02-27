@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect,reverse
 from django.contrib import messages
 from .models import *
-from .models import policy
+
 
 
 # Create your views here.
@@ -164,68 +164,36 @@ def releventpolicy(request):
     uid = request.session['user_id']
 
     ocuu = register_user.objects.filter(id=uid).values('occupation')
+    # for result in ocuu:
+    #   occupation_value = result['occupation']
+    #   print(occupation_value)
     area=aadhar.objects.filter(user_id=uid).values('residencearea')
     area_filter=['Both',area]
-
     try:
-        filters = aadhar.objects.get(id=uid)
+        filters = aadhar.objects.get(user_id=uid)
     except aadhar.DoesNotExist:
         filters = None
-
     # print(aadhar_id)
     aadhar_avail = False
+    print("Try 2",filters)
 
     if filters is not None:
         aadhar_avail = True
         if  filters.disability_status == 'Yes' and filters.minority_status == 'Yes' and filters.bpl_status == 'Yes':
-            policy=policy.objects.filter(policy_type_in=ocuu, policy_residence_area_in=area_filter,policy_disability_Status='Yes',policy_minority_Status='Yes',policy_bpl_Status='Yes')
+            policy_data=policy.objects.filter(policy_type_in=ocuu, policy_residence_area_in=area_filter,policy_disability_Status='Yes',policy_minority_Status='Yes',policy_bpl_Status='Yes')
 
             contex = {
-                    'data': policy,
+                    'data': policy_data,
                     'aadhar_avail': aadhar_avail,
                 }
-        elif  filters.disability_status == 'Yes' and filters.minority_status == 'No' and filters.bpl_status == 'No':
-            policy=policy.objects.filter(policytype_icontains=ocuu, policy_residence_area_in=area_filter,policy_disability_Status='Yes',policy_minority_Status='No',policy_bpl_Status='No')
-
-            contex = {
-                    'data': policy,
-                    'aadhar_avail': aadhar_avail,
-                }
-        elif filters.disability_status == 'No' and filters.minority_status == 'Yes' and filters.bpl_status == 'No':
-            policy = policy.objects.filter(policytype_icontains=ocuu, policy_residence_area_in=area_filter,policy_disability_Status='No', policy_minority_Status='Yes', policy_bpl_Status='No')
-
-            contex = {
-                'data': policy,
-                'aadhar_avail': aadhar_avail,
-            }
-        elif filters.disability_status == 'No' and filters.minority_status == 'No' and filters.bpl_status == 'Yes':
-            policy = policy.objects.filter(policytype_icontains=ocuu, policy_residence_area_in=area_filter, policy_disability_Status='No', policy_minority_Status='No', policy_bpl_Status='Yes')
-            contex = {
-                'data': policy,
-                'aadhar_avail': aadhar_avail,
-            }
-        elif filters.disability_status == 'No' and filters.minority_status == 'Yes' and filters.bpl_status == 'Yes':
-            policy = policy.objects.filter(policytype_icontains=ocuu, policy_residence_area_in=area_filter,policy_disability_Status='No', policy_minority_Status='Yes', policy_bpl_Status='Yes')
-            contex = {
-                'data': policy,
-                'aadhar_avail': aadhar_avail,
-            }
-        elif filters.disability_status == 'Yes' and filters.minority_status == 'NO' and filters.bpl_status == 'Yes':
-            policy = policy.objects.filter(policytype_icontains=ocuu, policy_residence_area_in=area_filter,policy_disability_Status='Yes', policy_minority_Status='No', policy_bpl_Status='Yes')
-            contex = {
-                'data': policy,
-                'aadhar_avail': aadhar_avail,
-            }
-        elif filters.disability_status == 'Yes' and filters.minority_status == 'Yes' and filters.bpl_status == 'No':
-            policy = policy.objects.filter(policytype_icontains=ocuu, policy_residence_area_in=area_filter,policy_disability_Status='Yes', policy_minority_Status='Yes', policy_bpl_Status='No')
-            contex = {
-                'data': policy,
-                'aadhar_avail': aadhar_avail,
-            }
         else:
-            policy = policy.objects.filter(policytype_icontains=ocuu,policy_residence_area_in=area_filter)
+            # policies = policy.objects.filter(policytype_icontains=ocuu,policy_residence_area_in=area_filter)
+            occ_val = ocuu[0]['occupation']
+            print(occ_val)
+            policies = policy.objects.filter(policy_type='Home')
+            print("policydata",policies)
             contex = {
-                'policydata': policy,
+                'policydata': policies,
                 'aadhar_avail': aadhar_avail,
             }
         # print("check upper")
@@ -241,6 +209,8 @@ def releventpolicy(request):
         }
         # messages.error(request, 'Add Aadhar Details')
         return render(request, 'relevent_policy.html', acontext)
+    
+    
     
 def aadhardata(request):
     if request.method == 'POST':
@@ -266,3 +236,43 @@ def aadhardata(request):
     else:
         messages.error(request, 'Unable to Add Aadhar Details')
         return render(request, 'aadhar.html')
+
+
+     # elif  filters.disability_status == 'Yes' and filters.minority_status == 'No' and filters.bpl_status == 'No':
+        #     policy=policy.objects.filter(policytype_icontains=ocuu, policy_residence_area_in=area_filter,policy_disability_Status='Yes',policy_minority_Status='No',policy_bpl_Status='No')
+
+        #     contex = {
+        #             'data': policy,
+        #             'aadhar_avail': aadhar_avail,
+        #         }
+        # elif filters.disability_status == 'No' and filters.minority_status == 'Yes' and filters.bpl_status == 'No':
+        #     policy = policy.objects.filter(policytype_icontains=ocuu, policy_residence_area_in=area_filter,policy_disability_Status='No', policy_minority_Status='Yes', policy_bpl_Status='No')
+
+        #     contex = {
+        #         'data': policy,
+        #         'aadhar_avail': aadhar_avail,
+        #     }
+        # elif filters.disability_status == 'No' and filters.minority_status == 'No' and filters.bpl_status == 'Yes':
+        #     policy = policy.objects.filter(policytype_icontains=ocuu, policy_residence_area_in=area_filter, policy_disability_Status='No', policy_minority_Status='No', policy_bpl_Status='Yes')
+        #     contex = {
+        #         'data': policy,
+        #         'aadhar_avail': aadhar_avail,
+        #     }
+        # elif filters.disability_status == 'No' and filters.minority_status == 'Yes' and filters.bpl_status == 'Yes':
+        #     policy = policy.objects.filter(policytype_icontains=ocuu, policy_residence_area_in=area_filter,policy_disability_Status='No', policy_minority_Status='Yes', policy_bpl_Status='Yes')
+        #     contex = {
+        #         'data': policy,
+        #         'aadhar_avail': aadhar_avail,
+        #     }
+        # elif filters.disability_status == 'Yes' and filters.minority_status == 'No' and filters.bpl_status == 'Yes':
+        #     policy = policy.objects.filter(policytype_icontains=ocuu, policy_residence_area_in=area_filter,policy_disability_Status='Yes', policy_minority_Status='No', policy_bpl_Status='Yes')
+        #     contex = {
+        #         'data': policy,
+        #         'aadhar_avail': aadhar_avail,
+        #     }
+        # elif filters.disability_status == 'Yes' and filters.minority_status == 'Yes' and filters.bpl_status == 'No':
+        #     policy = policy.objects.filter(policytype_icontains=ocuu, policy_residence_area_in=area_filter,policy_disability_Status='Yes', policy_minority_Status='Yes', policy_bpl_Status='No')
+        #     contex = {
+        #         'data': policy,
+        #         'aadhar_avail': aadhar_avail,
+        #     }
