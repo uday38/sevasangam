@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 {% load static %}
 <html class="no-js" lang="en">
-  
-<!-- Mirrored from html.rudhisasmito.com/insure/news-grid.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 09 Jan 2024 05:54:51 GMT -->
+{% load static%}
+<!-- Mirrored from html.rudhisasmito.com/insure/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 09 Jan 2024 05:54:02 GMT -->
 <head>
     <!-- Basic Page Needs
     ================================================== -->
@@ -25,11 +25,11 @@
 	<!-- ==============================================
 	CSS VENDOR
 	=============================================== -->
-	<link rel="stylesheet" type="text/css" href="{% static  'css/vendor/bootstrap.min.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static  'css/vendor/font-awesome.min.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static  'css/vendor/owl.carousel.min.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static  'css/vendor/owl.theme.default.min.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static  'css/vendor/magnific-popup.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/vendor/bootstrap.min.css'%}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'css/vendor/font-awesome.min.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/vendor/owl.carousel.min.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/vendor/owl.theme.default.min.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/vendor/magnific-popup.css'%}">
 
 	<!-- ==============================================
 	Google Fonts
@@ -39,9 +39,9 @@
 	<!-- ==============================================
 	Custom Stylesheet
 	=============================================== -->
-	<link rel="stylesheet" type="text/css" href="{% static  'css/style.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css'%}" />
 
-    <script type="text/javascript" src="{% static  'js/vendor/modernizr.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/vendor/modernizr.min.js'%}"></script>
 
 </head>
 
@@ -51,7 +51,6 @@
 	<div class="animationload">
 		<div class="loader"></div>
 	</div>
-	
 
 	{% include 'include/header.html' %}
 	<!-- TOPBAR -->
@@ -138,16 +137,16 @@
 
 <!--	&lt;!&ndash; NAVBAR SECTION &ndash;&gt;-->
 <!--	<div class="navbar navbar-main">-->
-<!--	-->
+
 <!--		<div class="container container-nav">-->
-<!--		-->
+
 <!--			<div class="navbar-header">-->
 <!--				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">-->
 <!--					<span class="icon-bar"></span>-->
 <!--					<span class="icon-bar"></span>-->
 <!--					<span class="icon-bar"></span>-->
 <!--				</button>-->
-<!--				-->
+
 <!--			</div>-->
 
 <!--			<a href="contact.html" title="" class="btn btn-orange-cta pull-right btn-view-all">GET A QUOTE</a>-->
@@ -157,156 +156,130 @@
 <!--					<li class="dropdown">-->
 <!--					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">HOME <span class="caret"></span></a>-->
 <!--					  <ul class="dropdown-menu">-->
-<!--						<li><a href="index.html">HOMEPAGE 1</a></li>-->
-<!--						<li><a href="index-2.html">HOMEPAGE 2</a></li>-->
+<!--						<li><a href="index/">HOMEPAGE 1</a></li>-->
+<!--						<li><a href="index2/">HOMEPAGE 2</a></li>-->
 <!--					  </ul>-->
 <!--					</li>-->
 <!--					<li class="dropdown">-->
 <!--					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ABOUT US <span class="caret"></span></a>-->
 <!--					  <ul class="dropdown-menu">-->
-<!--						<li><a href="about-company.html">OUR COMPANY</a></li>-->
-<!--						<li><a href="about-history.html">COMPANY HISTORY</a></li>-->
-<!--						<li><a href="about-team.html">OUR TEAM</a></li>-->
-<!--						<li><a href="about-partners.html">OUR PARTNERS</a></li>-->
+<!--						<li><a href="/our company/">OUR COMPANY</a></li>-->
+<!--						<li><a href="about history/">COMPANY HISTORY</a></li>-->
+<!--						<li><a href="about team/">OUR TEAM</a></li>-->
+<!--						<li><a href="about partners/">OUR PARTNERS</a></li>-->
 <!--					  </ul>-->
 <!--					</li>-->
 <!--					<li class="dropdown">-->
 <!--					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SERVICES <span class="caret"></span></a>-->
 <!--					  <ul class="dropdown-menu">-->
-<!--						<li><a href="services.html">SERVICES 1</a></li>-->
-<!--						<li><a href="services-2.html">SERVICES 2</a></li>-->
-<!--						<li><a href="services-detail.html">SERVICES DETAIL</a></li>-->
+<!--						<li><a href="/services/">SERVICES 1</a></li>-->
+<!--						<li><a href="services2/">SERVICES 2</a></li>-->
+<!--						<li><a href="services detail/">SERVICES DETAIL</a></li>-->
 <!--					  </ul>-->
 <!--					</li>-->
 <!--					<li class="dropdown">-->
 <!--					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PAGES <span class="caret"></span></a>-->
 <!--					  <ul class="dropdown-menu">-->
-<!--						<li><a href="faq.html">FAQ</a></li>-->
-<!--						<li><a href="pricing-table.html">PRICING TABLE</a></li>-->
-<!--						<li><a href="404page.html">404 PAGE</a></li>-->
-<!--						<li><a href="career.html">CAREER</a></li>-->
+<!--						<li><a href="/FAQ/">FAQ</a></li>-->
+<!--						<li><a href="pricing table/">PRICING TABLE</a></li>-->
+<!--						<li><a href="404page/">404 PAGE</a></li>-->
+<!--						<li><a href="career/">CAREER</a></li>-->
 <!--					  </ul>-->
 <!--					</li>-->
 <!--					<li class="dropdown">-->
 <!--					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PROJECTS <span class="caret"></span></a>-->
 <!--					  <ul class="dropdown-menu">-->
-<!--						<li><a href="project-grid.html">GRID LAYOUT</a></li>-->
-<!--						<li><a href="project-detail.html">SINGLE PROJECT</a></li>-->
-<!--					  </ul>-->
-<!--					</li>-->
-<!--					<li class="dropdown active">-->
-<!--					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">NEWS <span class="caret"></span></a>-->
-<!--					  <ul class="dropdown-menu">-->
-<!--						<li><a href="news-grid.html">GRID BAR</a></li>-->
-<!--						<li><a href="news-sidebar.html">SIDEBAR</a></li>-->
-<!--						<li><a href="news-detail.html">SINGLE NEWS</a></li>-->
+<!--						<li><a href="/project grid/">GRID LAYOUT</a></li>-->
+<!--						<li><a href="project detail/">SINGLE PROJECT</a></li>-->
 <!--					  </ul>-->
 <!--					</li>-->
 <!--					<li class="dropdown">-->
+<!--					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">NEWS <span class="caret"></span></a>-->
+<!--					  <ul class="dropdown-menu">-->
+<!--						<li><a href="/news grid/">GRID BAR</a></li>-->
+<!--						<li><a href="news sidebar/">SIDEBAR</a></li>-->
+<!--						<li><a href="news detail/">SINGLE NEWS</a></li>-->
+<!--					  </ul>-->
+<!--					</li>-->
+<!--					<li class="dropdown active">-->
 <!--					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CONTACT <span class="caret"></span></a>-->
 <!--					  <ul class="dropdown-menu">-->
-<!--						<li><a href="contact.html">CONTACT US</a></li>-->
-<!--						<li><a href="contact-quote.html">GET A QUOTE</a></li>-->
+<!--						<li><a href="/contact/">CONTACT US</a></li>-->
+<!--						<li><a href="contact quote/">GET A QUOTE</a></li>-->
 <!--					  </ul>-->
 <!--					</li>-->
 
 <!--				</ul>-->
 <!--			</nav>-->
 
-<!--			-->
-<!--			-->
+
+
 <!--		</div>-->
 <!--    </div>-->
-<!-- -->
+
 	<!-- BANNER -->
-	<div class="section banner-page news">
+	<div class="section banner-page contact">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 col-md-12">
-					<div class="title-page">Grid Bar</div>
+					<div class="title-page">sign in page</div>
 					<ol class="breadcrumb">
-						<li><a href="index/">News</a></li>
-						<li class="active">Grid Bar</li>
+						<li><a href="index/">Sign up</a></li>
+						<li class="active">Login page</li>
 					</ol>
 				</div>
 			</div>
 		</div>
 	</div>
-	
-	<!-- SINGLE PAGE --> 
-
-			{% for policy in policydata %}
-			<div class="section news section-border">
-				<div class="container">
-					<div class="row grid-services">
-
-				<div class="col-sm-6 col-md-4">
-					<div class="box-news-1">
-						<div class="image">
-							<a href="/policydetail/{{policy.id }}" title="House Insurance">
-								<img src="/media/{{policy.policy_photo}}" alt="" class="img-responsive">
-							</a>
-						</div>
-						<div class="meta-date"><span>{{ policy.policy_name }}</span>
-							<span>{{ policy.policy_publication_date|date:"F" }}</span>
-							<span>{{ policy.policy_publication_date|date:"Y" }}</span></div>
-						<h3 class="blok-title"><a href="#" title="How to protect your kid for their future dream.">{{policy.policy_name}}</a></h3>
-					</div>
-				</div>
-			{% endfor %}
-				<!-- 2 insurance -->
-				<!-- <div class="col-sm-6 col-md-4">
-					<div class="box-news-1">
-						<div class="image">
-							<a href="/news detail/" title="House Insurance">
-								<img src="{% static 'images/project-img-2.jpg' %}" alt="" class="img-responsive">
-							</a>
-						</div>
-						<div class="meta-date">March 20, 2016</div>
-						<h3 class="blok-title"><a href="#" title="How to protect your kid for their future dream.">Traveling more confident with our insurance.</a></h3>
-					</div>
-				</div> -->
-				
-
-			</div>
-
-			<div class="row">
-				<div class="col-sm-12 col-md-12">
-					<ul class="pagination">
-						<li class="active"><a href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
-					</ul>
-				</div>
-			</div>
-
-		</div>
-	</div>
-
-	<!-- CTA -->
-	<div class="section cta">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/css/star-rating.min.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/js/star-rating.min.js"></script>
+	<!-- Page -->
+	<div class="form-container">
+	<div class="section contact">
 		<div class="container">
-			
 			<div class="row">
-				
-				<div class="col-sm-12 col-md-7 col-md-offset-1">
-					<h3 class="cta-desc">Get An Insurance Right Now & Save up to 10%</h3>
-				</div>
-				<div class="col-sm-12 col-md-3">
-					<a href="contact/" title="" class="btn btn-orange-cta pull-right btn-view-all">GET A QUOTE</a>
-				</div>
+				<div class="col-sm-4 col-md-4 col-md-push-8">
 
+				</div>
+				<div class="col-sm-8 col-md-8 col-md-pull-4">
+					<div class="form-container">
+						<h2 class="section-heading">
+							Feedback
+						</h2>
+						<form action="/insert" method="post">{% csrf_token %}
+                            <div class="form-contact" id="contactForm" data-toggle="validator" novalidate="true"></div>
+                            <div class="form-group">
+							<input id="input-1" name="input-1" class="rating rating-loading" data-min="0" data-max="5" data-step="1">
+                               
+							</div>
+							 
+								<div class="form-group">
+                                    <textarea id="p_message" class="form-control" rows="6" placeholder="Write message"></textarea>
+                                   <div class="help-block with-errors"></div>
+                               </div>
+                               <div class="form-group">
+								<div id="success"></div>
+								<button type="submit" class="btn btn-secondary">submit</button>
+							</div>
+						</form>
+									
+					</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
+	
 
 	{% include 'include/footer.html' %}
-<!--	-->
-<!--	&lt;!&ndash; FOOTER SECTION &ndash;&gt;-->
+
+	<!-- FOOTER SECTION -->
 <!--	<div class="footer">-->
-<!--		-->
+
 <!--		<div class="container">-->
-<!--			-->
+
 <!--			<div class="row">-->
 <!--				<div class="col-sm-3 col-md-3">-->
 <!--					<div class="footer-item">-->
@@ -332,7 +305,7 @@
 <!--								<div class="item">-->
 <!--									<i class="fa fa-pinterest"></i>-->
 <!--								</div>-->
-<!--							</a> -->
+<!--							</a>-->
 <!--						</div>-->
 <!--					</div>-->
 <!--				</div>-->
@@ -389,46 +362,46 @@
 <!--							Additional Links-->
 <!--						</div>-->
 <!--						<ul class="list">-->
-<!--							<li><a href="our-company.html" title="">Our Company</a></li>-->
-<!--							<li><a href="our-team.html" title="">Our Team</a></li>-->
-<!--							<li><a href="our-partners.html" title="">Our Partners</a></li>-->
-<!--							<li><a href="careers.html" title="">Careers</a></li>-->
-<!--							<li><a href="contact-us.html" title="">Contact Us</a></li>-->
+<!--							<li><a href="our company/" title="">Our Company</a></li>-->
+<!--							<li><a href="about team/" title="">Our Team</a></li>-->
+<!--							<li><a href="about partners/" title="">Our Partners</a></li>-->
+<!--							<li><a href="careers/" title="">Careers</a></li>-->
+<!--							<li><a href="contact us/" title="">Contact Us</a></li>-->
 <!--						</ul>-->
 <!--					</div>-->
 <!--				</div>-->
-<!--				-->
+
 <!--			</div>-->
 <!--		</div>-->
-<!--		-->
+
 <!--		<div class="fcopy">-->
 <!--			<div class="container">-->
 <!--				<div class="row">-->
 <!--					<div class="col-sm-12 col-md-12">-->
-<!--						<p class="ftex">&copy; 2017 Insure by Rudhi Sasmito - All Rights Reserved</p> -->
+<!--						<p class="ftex">&copy; 2017 Insure by Rudhi Sasmito - All Rights Reserved</p>-->
 <!--					</div>-->
 <!--				</div>-->
 <!--			</div>-->
 <!--		</div>-->
-<!--		-->
+
 <!--	</div>-->
-<!--	-->
+
 <!--	&lt;!&ndash; JS VENDOR &ndash;&gt;-->
-<!--	<script type="text/javascript" src="js/vendor/jquery.min.js"></script>-->
-<!--	<script type="text/javascript" src="js/vendor/bootstrap.min.js"></script>-->
-<!--	<script type="text/javascript" src="js/vendor/jquery.superslides.js"></script>-->
-<!--	<script type="text/javascript" src="js/vendor/owl.carousel.js"></script>-->
-<!--	<script type="text/javascript" src="js/vendor/bootstrap-hover-dropdown.min.js"></script>-->
-<!--	<script type="text/javascript" src="js/vendor/jquery.magnific-popup.min.js"></script>-->
+<!--	<script type="text/javascript" src="{% static 'js/vendor/jquery.min.js' %}"></script>-->
+<!--	<script type="text/javascript" src="{% static 'js/vendor/bootstrap.min.js' %}"></script>-->
+<!--	<script type="text/javascript" src="{% static 'js/vendor/jquery.superslides.js' %}"></script>-->
+<!--	<script type="text/javascript" src="{% static 'js/vendor/owl.carousel.js' %}"></script>-->
+<!--	<script type="text/javascript" src="{% static 'js/vendor/bootstrap-hover-dropdown.min.js' %}"></script>-->
+<!--	<script type="text/javascript" src="{% static 'js/vendor/jquery.magnific-popup.min.js' %}"></script>-->
 <!--	&lt;!&ndash; sendmail &ndash;&gt;-->
-<!--	<script type="text/javascript" src="js/vendor/validator.min.js"></script>-->
-<!--	<script type="text/javascript" src="js/vendor/form-scripts.js"></script>-->
-<!--	-->
+<!--	<script type="text/javascript" src="{% static 'js/vendor/validator.min.js' %}"></script>-->
+<!--	<script type="text/javascript" src="{% static 'js/vendor/form-scripts.js' %}"></script>-->
+
 <!--	<script type='text/javascript' src='https://maps.google.com/maps/api/js?sensor=false&amp;ver=4.1.5'></script>-->
 
-<!--	<script type="text/javascript" src="js/script.js"></script>-->
-<!--		-->
+<!--	<script type="text/javascript" src="{% static 'js/script.js' %}"></script>-->
+
 </body>
 
-<!-- Mirrored from html.rudhisasmito.com/insure/news-grid.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 09 Jan 2024 05:54:51 GMT -->
+<!-- Mirrored from html.rudhisasmito.com/insure/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 09 Jan 2024 05:54:02 GMT -->
 </html>

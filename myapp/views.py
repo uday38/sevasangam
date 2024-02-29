@@ -103,6 +103,8 @@ def aadhardata(request):
     return render(request, 'aadhardata.html')
 
 
+
+
 def insertdata(request):
     if request.method == "POST":
         username = request.POST.get('u_name')
@@ -164,9 +166,6 @@ def releventpolicy(request):
     uid = request.session['user_id']
 
     ocuu = register_user.objects.filter(id=uid).values('occupation')
-    # for result in ocuu:
-    #   occupation_value = result['occupation']
-    #   print(occupation_value)
     area=aadhar.objects.filter(user_id=uid).values('residencearea')
     area_filter=['Both',area]
     try:
@@ -175,21 +174,23 @@ def releventpolicy(request):
         filters = None
     # print(aadhar_id)
     aadhar_avail = False
-    print("Try 2",filters)
+    print("Try 2",filters.bpl_status)
 
     if filters is not None:
         aadhar_avail = True
         if  filters.disability_status == 'Yes' and filters.minority_status == 'Yes' and filters.bpl_status == 'Yes':
-            policy_data=policy.objects.filter(policy_type_in=ocuu, policy_residence_area_in=area_filter,policy_disability_Status='Yes',policy_minority_Status='Yes',policy_bpl_Status='Yes')
-
+            policy_data=policy.objects.filter(policy_type__in=ocuu, policy_residence_area__in=area_filter,policy_disability_status='Yes',policy_minority_status='Yes',policy_bpl_status='Yes')
+            print(policy_data)
             contex = {
-                    'data': policy_data,
+                    'policydata': policy_data,
                     'aadhar_avail': aadhar_avail,
                 }
         else:
             # policies = policy.objects.filter(policytype_icontains=ocuu,policy_residence_area_in=area_filter)
-            occ_val = ocuu[0]['occupation']
-            print(occ_val)
+            print(2)
+            
+            # occ_val = ocuu[0]['occupation']
+            # print(occ_val)
             policies = policy.objects.filter(policy_type='Home')
             print("policydata",policies)
             contex = {
@@ -236,6 +237,12 @@ def aadhardata(request):
     else:
         messages.error(request, 'Unable to Add Aadhar Details')
         return render(request, 'aadhar.html')
+    
+def feedback(request):
+    if request.method == 'POST':
+        feedback = request.POST.get('rating')
+        # = request.POST.get('p_message')
+    return render(request, 'feedback.html')
 
 
      # elif  filters.disability_status == 'Yes' and filters.minority_status == 'No' and filters.bpl_status == 'No':

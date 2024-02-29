@@ -27,31 +27,31 @@ gender_choices = [
         ('O', 'Other'),
     ]
 POLICY_TYPE_CHOICES = [
-        ('HEALTH', 'Health'),
-        ('LIFE', 'Life'),
-        ('AUTO', 'Auto'),
-        ('HOME', 'Home'),
-        ('TRAVEL', 'Travel'),
+        ('Health', 'Health'),
+        ('Life', 'Life'),
+        ('Auto', 'Auto'),
+        ('Home', 'Home'),
+        ('Travel', 'Travel'),
     ]
 
 POLICY_RESIDENCE_AREA_CHOICES = [
-        ('URBAN', 'Urban'),
-        ('RURAL', 'Rural'),
-        ('BOTH', 'Both'),
+        ('Urban', 'Urban'),
+        ('Rural', 'Rural'),
+        ('Both', 'Both'),
     ]
 disability_status_choices= [
-        ('YES', 'Yes'),
-        ('NO', 'No'),
+        ('Yes', 'Yes'),
+        ('No', 'No'),
     ]
 
 minority_status_choices= [
-        ('YES', 'Yes'),
-        ('NO', 'No'),
+        ('Yes', 'Yes'),
+        ('No', 'No'),
     ]
 
 bpl_status_choices= [
-        ('YES', 'Yes'),
-        ('NO', 'No'),
+        ('Yes', 'Yes'),
+        ('No', 'No'),
     ]
 
 
