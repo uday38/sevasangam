@@ -185,9 +185,48 @@ def releventpolicy(request):
                     'policydata': policy_data,
                     'aadhar_avail': aadhar_avail,
                 }
+        elif  filters.disability_status == 'Yes' and filters.minority_status == 'No' and filters.bpl_status == 'No':
+            policy_data=policy.objects.filter(policytype_icontains=ocuu, policy_residence_area_in=area_filter,policy_disability_status='Yes',status='No',policy_bpl_status='No')
+
+            contex = {
+                    'data': policy_data,
+                    'aadhar_avail': aadhar_avail,
+                }
+        elif filters.disability_status == 'No' and filters.minority_status == 'Yes' and filters.bpl_status == 'No':
+            policy_data = policy.objects.filter(policytype_icontains=ocuu, policy_residence_area_in=area_filter,policy_disability_status='No', policy_minority_status='Yes', policy_bpl_status='No')
+
+            contex = {
+                'data': policy_data,
+                'aadhar_avail': aadhar_avail,
+            }
+        elif filters.disability_status == 'No' and filters.minority_status == 'No' and filters.bpl_status == 'Yes':
+            policy_data = policy.objects.filter(policytype_icontains=ocuu, policy_residence_area_in=area_filter, policy_disability_status='No', policy_minority_status='No', policy_bpl_status='Yes')
+            contex = {
+                'data': policy_data,
+                'aadhar_avail': aadhar_avail,
+            }
+        elif filters.disability_status == 'No' and filters.minority_status == 'Yes' and filters.bpl_status == 'Yes':
+            policy_data = policy.objects.filter(policytype_icontains=ocuu, policy_residence_area_in=area_filter,policy_disability_status='No', policy_minority_status='Yes', policy_bpl_status='Yes')
+            contex = {
+                'data': policy_data,
+                'aadhar_avail': aadhar_avail,
+            }
+        elif filters.disability_status == 'Yes' and filters.minority_status == 'No' and filters.bpl_status == 'Yes':
+            policy_data = policy.objects.filter(policytype_icontains=ocuu, policy_residence_area_in=area_filter,policy_disability_status='Yes', policy_minority_status='No', policy_bpl_status='Yes')
+            contex = {
+                'data': policy_data,
+                'aadhar_avail': aadhar_avail,
+            }
+        elif filters.disability_status == 'Yes' and filters.minority_status == 'Yes' and filters.bpl_status == 'No':
+            policy_data = policy.objects.filter(policytype_icontains=ocuu, policy_residence_area_in=area_filter,policy_disability_status='Yes', policy_minority_status='Yes', policy_bpl_Status='No')
+            contex = {
+                'data': policy_data,
+                'aadhar_avail': aadhar_avail,
+            }
+            
         else:
             # policies = policy.objects.filter(policytype_icontains=ocuu,policy_residence_area_in=area_filter)
-            print(2)
+            
             
             # occ_val = ocuu[0]['occupation']
             # print(occ_val)
@@ -239,47 +278,13 @@ def aadhardata(request):
         return render(request, 'aadhar.html')
     
 def feedback(request):
-    if request.method == 'POST':
-        feedback = request.POST.get('rating')
-        # = request.POST.get('p_message')
-    return render(request, 'feedback.html')
+    if request.method == "POST":
+        star = request.POST.get("Rating")
+        message = request.POST.get("p_message")
 
-
-     # elif  filters.disability_status == 'Yes' and filters.minority_status == 'No' and filters.bpl_status == 'No':
-        #     policy=policy.objects.filter(policytype_icontains=ocuu, policy_residence_area_in=area_filter,policy_disability_Status='Yes',policy_minority_Status='No',policy_bpl_Status='No')
-
-        #     contex = {
-        #             'data': policy,
-        #             'aadhar_avail': aadhar_avail,
-        #         }
-        # elif filters.disability_status == 'No' and filters.minority_status == 'Yes' and filters.bpl_status == 'No':
-        #     policy = policy.objects.filter(policytype_icontains=ocuu, policy_residence_area_in=area_filter,policy_disability_Status='No', policy_minority_Status='Yes', policy_bpl_Status='No')
-
-        #     contex = {
-        #         'data': policy,
-        #         'aadhar_avail': aadhar_avail,
-        #     }
-        # elif filters.disability_status == 'No' and filters.minority_status == 'No' and filters.bpl_status == 'Yes':
-        #     policy = policy.objects.filter(policytype_icontains=ocuu, policy_residence_area_in=area_filter, policy_disability_Status='No', policy_minority_Status='No', policy_bpl_Status='Yes')
-        #     contex = {
-        #         'data': policy,
-        #         'aadhar_avail': aadhar_avail,
-        #     }
-        # elif filters.disability_status == 'No' and filters.minority_status == 'Yes' and filters.bpl_status == 'Yes':
-        #     policy = policy.objects.filter(policytype_icontains=ocuu, policy_residence_area_in=area_filter,policy_disability_Status='No', policy_minority_Status='Yes', policy_bpl_Status='Yes')
-        #     contex = {
-        #         'data': policy,
-        #         'aadhar_avail': aadhar_avail,
-        #     }
-        # elif filters.disability_status == 'Yes' and filters.minority_status == 'No' and filters.bpl_status == 'Yes':
-        #     policy = policy.objects.filter(policytype_icontains=ocuu, policy_residence_area_in=area_filter,policy_disability_Status='Yes', policy_minority_Status='No', policy_bpl_Status='Yes')
-        #     contex = {
-        #         'data': policy,
-        #         'aadhar_avail': aadhar_avail,
-        #     }
-        # elif filters.disability_status == 'Yes' and filters.minority_status == 'Yes' and filters.bpl_status == 'No':
-        #     policy = policy.objects.filter(policytype_icontains=ocuu, policy_residence_area_in=area_filter,policy_disability_Status='Yes', policy_minority_Status='Yes', policy_bpl_Status='No')
-        #     contex = {
-        #         'data': policy,
-        #         'aadhar_avail': aadhar_avail,
-        #     }
+        insertdata = feedback(user_id=register_user(request.session['u_id']),rating=star,comments =message)
+        insertdata.save()
+        return redirect(reverse('index04b9'))
+    
+def feedback(request):
+    return render(request,'feedback.html')    
