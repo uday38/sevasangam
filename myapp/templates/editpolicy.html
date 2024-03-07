@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Policy</title>
+</head>
+
+<body>
+    <div class="container">
+      <h2>Update policy Data</h2>
+      <form method="post" action="/updatepolicy/{{policydata.id}}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="policyName">policy Name:</label>
+          <input type="text" name="pname" value="{{policydata.policyname}}" class="form-control" id="policyName" required>
+        </div>
+        <!-- <div class="form-group">
+          <label for="policyPrice">policy Price:</label>
+          <input type="number" name="pprice" value="{{policydata.policyprice}}" class="form-control" id="policyPrice" required>
+        </div> -->
+        <div class="form-group">
+          <label for="policyDescription">policy Description:</label>
+          <textarea class="form-control" name="pdesc" id="policyDescription" rows="3" required>{{policydata.policydesc}}</textarea>
+        </div>
+        <div class="form-group">
+          <label for="policyImage">policy Image:</label>
+          <input type="file" name="pimage" class="form-control-file" id="policyImage" accept="image/*">
+        </div>
+        <img src="/media/{{policydata.policyimage}}" alt="policy Image">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </body>

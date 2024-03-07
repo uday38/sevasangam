@@ -40,6 +40,8 @@ urlpatterns = [
     path("vehicalinsurance/",views.vehicalinsurance, name="service vehical insurance.html"),
     path('aadhars/', views.aadhars, name="aadhar.html"),
     path('aadhardata', views.aadhardata, name="aadhardata"),
-    path('feedback', views.feedback, name="feedback"),
+    path('Feedback/', views.Feedback, name="feedback"),
+    path('editpolicy/<int:eid>', views.editpolicy, name="editpolicy"),
+    
 
 ]
