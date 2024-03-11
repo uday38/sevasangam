@@ -35,12 +35,13 @@ urlpatterns = [
     path("boatinsurance/",views.boatinsurance, name="service boat insurance.html"),
     path("carinsurance/",views.carinsurance, name="service car insurance.html"),
     path("houseinsurance/",views.houseinsurance, name="service house insurance.html"),
-    path("lifeinsurance/",views.lifeinsurance, name="service life insurance.html"),
+    path("lifeinsurance/",views.lifeinsurance, name="service life insurance.html"), 
     path("travelinsurance/",views.travelinsurance, name="service travel insurance.html"),
     path("vehicalinsurance/",views.vehicalinsurance, name="service vehical insurance.html"),
     path('aadhars/', views.aadhars, name="aadhar.html"),
     path('aadhardata', views.aadhardata, name="aadhardata"),
     path('Feedback/', views.Feedback, name="feedback"),
+    path('feed_back/', views.feed_back, name="feedback"),
    
     
 

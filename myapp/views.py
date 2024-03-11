@@ -277,15 +277,15 @@ def aadhardata(request):
         messages.error(request, 'Unable to Add Aadhar Details')
         return render(request, 'aadhar.html')
     
-def feedback(request):
+def feed_back(request):
     if request.method == "POST":
+        user_id=request.session['user_id']
         star = request.POST.get("Rating")
         message = request.POST.get("p_message")
 
-        insertdata = feedback(user_id=register_user(request.session['u_id']),rating=star,comments =message)
+        insertdata = feedback(user_id=register_user(id=user_id),rating=star,comments=message)
         insertdata.save()
-        return redirect(reverse('index04b9'))
-    
+        return redirect("indebx04b9")
 def Feedback(request):
     return render(request,'feedback.html')
 

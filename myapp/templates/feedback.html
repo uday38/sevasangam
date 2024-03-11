@@ -248,7 +248,7 @@
 						<h2 class="section-heading">
 							Feedback
 						</h2>
-						<form action="/feedback" method="post">{% csrf_token %}
+						<form action="/feed_back/" method="post">{% csrf_token %}
                             <div class="form-contact" id="contactForm" data-toggle="validator" novalidate="true"></div>
                             <div class="form-group">
 							<input id="rating" name="Rating" class="rating rating-loading" data-min="0" data-max="5" data-step="1">
@@ -256,7 +256,7 @@
 							</div>
 							 
 								<div class="form-group">
-                                    <textarea id="p_message" class="form-control" rows="6" placeholder="Write message"></textarea>
+                                    <textarea id="p_message" name="p_message" class="form-control" rows="6" placeholder="Write message"></textarea>
                                    <div class="help-block with-errors"></div>
                                </div>
                                <div class="form-group">
