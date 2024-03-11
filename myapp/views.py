@@ -289,26 +289,4 @@ def feedback(request):
 def Feedback(request):
     return render(request,'feedback.html')
 
-def editpolicy(request):
-    return render(request,'editpolicy.html')
-def editpolicy(request,eid):
-    data=policy.objects.get(id=eid)
-    return render(request,'editpolicy.html',{"policydata":data})
 
-def updatepolicy(request,uid):
-    name = request.POST.get('name')
-    price = request.POST.get('price')
-    desc = request.POST.get('desc')
-    data=policy.objects.get(id=uid)
-    data.policy_name=name
-    data.policy_publication_date=price
-    data.policy_details=desc
-    if "pimage" in request.FILES:
-        image = request.FILES['pimage']
-        data.policy_photo=image
-    data.save()
-    return redirect('index04b9')
-
-
-
-    

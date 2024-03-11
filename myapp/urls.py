@@ -41,7 +41,7 @@ urlpatterns = [
     path('aadhars/', views.aadhars, name="aadhar.html"),
     path('aadhardata', views.aadhardata, name="aadhardata"),
     path('Feedback/', views.Feedback, name="feedback"),
-    path('editpolicy/<int:eid>', views.editpolicy, name="editpolicy"),
+   
     
 
 ]

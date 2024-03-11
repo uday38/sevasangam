@@ -540,9 +540,9 @@ i, cite, em, var, address, dfn {
 
 .section-heading {
   font-size: 36px;
-  line-height: 50px;
+  line-height: 60px;
   font-weight: 400;
-  color: #12aaeb;
+  color: #0385ff;
   margin-bottom: 20px; }
   .section-heading.center {
     text-align: center; }

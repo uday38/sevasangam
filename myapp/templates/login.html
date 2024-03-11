@@ -222,29 +222,72 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 col-md-12">
-					<div class="title-page">sign in page</div>
+					<div class="title-page">Login in page</div>
 					<ol class="breadcrumb">
-						<li><a href="index/">Sign up</a></li>
+						<li><a href="/signup/">Sign up</a></li>
 						<li class="active">Login page</li>
 					</ol>
 				</div>
 			</div>
 		</div>
 	</div>
+<style>
+ body {
+            /* display:; */
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgb(255, 255, 255);
+            padding: 20px;
+            border-radius: 50px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.225);
+        }
+
+        label {
+            margin-top: 50px;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 450px;
+            height: 45px;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            cursor: pointer;
+        }
+		.uday {
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 50px;
+		}
+    </style>
 
 	<!-- Page -->
 	
 		<div class="section contact">
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-4 col-md-4 col-md-push-8">
-					</div>
-				<div class="col-sm-8 col-md-8 col-md-pull-4">
+					<!-- <div class="col-sm-4 col-md-4 col-md-push-8">
+					</div> -->
+				<!-- <div class="col-sm-8 col-md-8 col-md-pull-4"> -->
 					<div class="content">
-						<h2 class="section-heading">
+						
+						
+						<h2 class="uday">
 							Login
 						</h2>
-
 						<form action="/checklogin" method="post">{% csrf_token %}
 							<div class="form-contact" id="contactForm" data-toggle="validator" novalidate="true"></div>
 						
@@ -274,17 +317,15 @@
 								{% endif %}
 								<div class="create-account-link">
 								<a href="/signup">Create a New Account ?</a>
+								</div>
 							</div>
 						</div>
-				</div>
-
-						</form>
-						
-					 	</div>
-					</div>
+					</form>
 				</div>
 			</div>
 		</div>
+		
+	
 	
 
 	{% include 'include/footer.html' %}
