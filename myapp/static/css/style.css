@@ -1491,7 +1491,7 @@ ul.checklist {
  */
 /* 4.1 - TOPBAR */
 .topbar {
-  background-color: #12aaeb;
+  background-color: #665FA2;
   padding: 0 0;
   height: 40px; }
   .topbar .topbar-left .welcome-text {
@@ -1870,7 +1870,7 @@ dl.hiw {
 /* 6.6 Section - Features */
 /* 6.7 Section - CTA */
 .cta {
-  background-color: #12aaeb;
+  background-color: #665FA2;
   padding: 20px 0; }
   .cta .cta-desc {
     font-family: "Open Sans", sans-serif;
