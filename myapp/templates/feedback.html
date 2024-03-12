@@ -45,7 +45,7 @@
 
 </head>
 
-<body>
+<t>
 
 	<!-- Load page -->
 	<div class="animationload">
@@ -221,7 +221,7 @@
 	<div class="section banner-page contact">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-12 col-md-12">
+				<!-- <div class="col-sm-12 col-md-12"> -->
 					<div class="title-page">sign in page</div>
 					<ol class="breadcrumb">
 						<li><a href="index/">Sign up</a></li>
@@ -235,17 +235,61 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/css/star-rating.min.css" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/js/star-rating.min.js"></script>
+	
+	<style>
+	body {
+		/* display:; */
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+		margin: 0;
+		padding: 0;
+		background-color: #f0f0f0;
+		font-family: Arial, sans-serif;
+	}
+
+	form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		background-color: rgb(255, 255, 255);
+		padding: 20px;
+		border-radius: 50px;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.225);
+	}
+
+	label {
+		margin-top: 50px;
+	}
+
+	
+	/* form-control[id="p_message"] {
+		width: 500px;
+		height: 45px;
+		margin-bottom: 10px;
+	} */
+
+	input[type="submit"] {
+		cursor: pointer;
+	}
+	.uday {
+	text-align: center;
+	margin-top: 0;
+	margin-bottom: 50px;
+	}
+</style>
+	
 	<!-- Page -->
 	<div class="form-container">
 	<div class="section contact">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-4 col-md-4 col-md-push-8">
+				<!-- <div class="col-sm-4 col-md-4 col-md-push-8"> -->
 
 				</div>
-				<div class="col-sm-8 col-md-8 col-md-pull-4">
+				<!-- <div class="col-sm-8 col-md-8 col-md-pull-4"> -->
 					<div class="form-container">
-						<h2 class="section-heading">
+						<h2 class="uday">
 							Feedback
 						</h2>
 						<form action="/feed_back/" method="post">{% csrf_token %}
@@ -255,10 +299,15 @@
                                
 							</div>
 							 
-								<div class="form-group">
-                                    <textarea id="p_message" name="p_message" class="form-control" rows="6" placeholder="Write message"></textarea>
+								<!-- <div class="form-group">
+                                    <textarea id="p_message" name="p_message" class="form-control" placeholder="Write message"></textarea>
                                    <div class="help-block with-errors"></div>
-                               </div>
+                               </div> -->
+
+							   <div class="form-group">
+								<input type="text" class="form-control" id="p_message" name="p_message" placeholder="Write message">
+								<div class="help-block with-errors"></div>
+							</div>
                                <div class="form-group">
 								<div id="success"></div>
 								<button type="submit" class="btn btn-secondary">submit</button>

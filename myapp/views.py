@@ -285,7 +285,7 @@ def feed_back(request):
 
         insertdata = feedback(user_id=register_user(id=user_id),rating=star,comments=message)
         insertdata.save()
-        return redirect("indebx04b9")
+        return redirect("index04b9.html")
 def Feedback(request):
     return render(request,'feedback.html')
 
