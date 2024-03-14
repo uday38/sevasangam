@@ -45,7 +45,7 @@
 
 </head>
 
-<body>
+<>
 
 	<!-- Load page -->
 	<div class="animationload">
@@ -231,21 +231,44 @@
 			</div>
 		</div>
 	</div>
+    <style>
+    form {
+        display: flex;
+        flex-direction: column;
+        /* align-items:center; */
+        justify-content: center;
+        background-color: rgb(255, 255, 255);
+        padding: 20px;
+        border-radius: 50px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.225);
+       
+    }
+    .uday {
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 50px;
+		}
+    /* .op {
+        width: 450px;
+        height: 45px;
+        justify-content: center;
 
+    } */
+</style>
 	<!-- Page -->
 	
 		<div class="section contact">
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-4 col-md-4 col-md-push-8">
+					<!-- <div class="col-sm-4 col-md-4 col-md-push-8"> -->
 					</div>
-				<div class="col-sm-8 col-md-8 col-md-pull-4">
-					<div class="content">
-						<h2 class="section-heading">
+				<!-- <div class="col-sm-8 col-md-8 col-md-pull-4"> -->
+					<class="content">
+						<h2 class="uday">
 							aadhar details
 						</h2>
                         <form action="/aadhardata" method="post">{% csrf_token %}
-                           
+                           <div class="op">
                             <div class="form-group">
                                 <label for="aadhar_number">Aadhaar Number:</label>
                                 <input type="number" class="form-control" id="aadharnumber" name="aadharnumber" required>
@@ -297,7 +320,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="minority_status">Minority Status:</label>
+                                <label for="minority_status">Disability Status:</label>
                                 <select class="form-control" id="disabilitystatus" name="disabilitystatus">
                                     <option value="#">Select</option>
                                     <option value="Yes">Yes</option>
@@ -324,12 +347,16 @@
                                 </select>
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
+                           </div>
                         </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                        </div>
+                        
+                      </div>
+                      
+                  </div>
+              </div>
+          </div>
+        
     
 	{% include 'include/footer.html' %}
 
