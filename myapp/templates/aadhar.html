@@ -232,31 +232,58 @@
 		</div>
 	</div>
     <style>
-    form {
-        display: flex;
-        flex-direction: column;
-        /* align-items:center; */
-        justify-content: center;
-        background-color: rgb(255, 255, 255);
-        padding: 20px;
-        border-radius: 50px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.225);
-       
-    }
-    .uday {
+        .form-group {
+    margin-bottom: -12px;
+}
+        .contact .form-control {
+    height: 45px;
+    width: 560px;
+    background-color: #f6f6f6;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    box-shadow: none;
+}
+         body{
+          justify-content: center;
+            align-items: center;
+            width: 45px;
+            height: 100px;
+            margin: 45;
+            padding: 50;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+            background-color: rgb(255, 255, 255);
+            padding: 20px;
+            border-radius: 50px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.225);
+        }
+
+        label {
+            margin-top: 50px;
+        }
+
+        /* input[type="email"],
+        input[type="password"] {
+            width: 450px;
+            height: 45px;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            cursor: pointer;
+        } */
+		.uday {
         text-align: center;
         margin-top: 0;
         margin-bottom: 50px;
 		}
-    .op {
-        width: 500px;
-        height: 45px;
-        justify-content: center;
-        align-items: center;
-        display:contents;
-
-
-    }
 </style>
 	<!-- Page -->
 	
@@ -268,7 +295,7 @@
 				<!-- <div class="col-sm-8 col-md-8 col-md-pull-4"> -->
 					<class="content">
 						<h2 class="uday">
-							aadhar details
+							Aadhar details
 						</h2>
                         <form action="/aadhardata" method="post">{% csrf_token %}
                            <div class="op">
